@@ -1,0 +1,498 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>播放本地MP4文件 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    第一章
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="播放mp4文件.html">
+            
+                <a href="播放mp4文件.html">
+            
+                    
+                    播放本地MP4文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >播放本地MP4文件</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x64AD;&#x653E;mp4&#x6587;&#x4EF6;">&#x64AD;&#x653E;mp4&#x6587;&#x4EF6;</h1>
+<p>&#x5148;&#x770B;&#x6548;&#x679C;&#x3002;</p>
+<p><img src="http://s226f4g40.hn-bkt.clouddn.com/demo.gif" alt=""></p>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x7B80;&#x5355;&#x7684;mp4&#x6587;&#x4EF6;&#x64AD;&#x653E;demo&#xFF0C;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#xFF0C;&#x6CA1;&#x6709;&#x52A0;&#x5165;&#x97F3;&#x9891;&#x6570;&#x636E;&#x89E3;&#x6790;&#xFF0C;&#x5373;&#x53EA;&#x6709;&#x56FE;&#x50CF;&#x6CA1;&#x6709;&#x58F0;&#x97F3;&#x3002;&#x6587;&#x7AE0;&#x6700;&#x540E;&#x8D34;&#x51FA;&#x4E86;&#x4E0B;&#x8F7D;&#x76F4;&#x63A5;&#x53EF;&#x7528;&#x5DE5;&#x7A0B;&#x7684;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x97F3;&#x89C6;&#x9891;&#x6E90;&#x7684;&#x64AD;&#x653E;&#x53EF;&#x4EE5;&#x6982;&#x62EC;&#x4E3A;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p><img src="http://s226f4g40.hn-bkt.clouddn.com/palyflow.png" alt=""></p>
+<p>mp4&#x6587;&#x4EF6;&#x4E5F;&#x662F;&#x6E90;&#x6570;&#x636E;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x7528;FFmpeg&#x89E3;&#x6790;mp4&#x6587;&#x4EF6;&#x4E5F;&#x9075;&#x5FAA;&#x8FD9;&#x4E2A;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x5C42;&#x9762;&#x7684;&#x89E3;&#x6790;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="http://s226f4g40.hn-bkt.clouddn.com/funflow.png" alt=""></p>
+<p>&#x548C;&#x4E0A;&#x8FF0;&#x6D41;&#x7A0B;&#x5BF9;&#x5E94;&#x7684;&#x5173;&#x952E;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-C++">avdevice_register_all();
+<span class="hljs-keyword">if</span>(<span class="hljs-literal">nullptr</span> == (fileFmtCtx = avformat_alloc_context()))
+{
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avformat_alloc_context() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+QString playUrl = QCoreApplication::applicationDirPath() + <span class="hljs-string">&quot;/test.mp4&quot;</span>;
+<span class="hljs-keyword">if</span> (avformat_open_input(&amp;fileFmtCtx, playUrl.toStdString().c_str(), <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>) != <span class="hljs-number">0</span>) {
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avformat_open_input() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">if</span>(avformat_find_stream_info(fileFmtCtx, <span class="hljs-literal">NULL</span>) &lt; <span class="hljs-number">0</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avformat_find_stream_info() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>;i &lt; fileFmtCtx-&gt;nb_streams;i++){
+    <span class="hljs-keyword">if</span>(fileFmtCtx-&gt;streams[i]-&gt;codecpar-&gt;codec_type==AVMEDIA_TYPE_VIDEO){
+        nVideoIndex = i;
+    }
+}
+<span class="hljs-keyword">if</span>(nVideoIndex == <span class="hljs-number">-1</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;nVideoIndex == -1&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+encoderPara = fileFmtCtx-&gt;streams[nVideoIndex]-&gt;codecpar;
+<span class="hljs-keyword">if</span>(<span class="hljs-literal">nullptr</span> == (decoder = avcodec_find_decoder(encoderPara-&gt;codec_id)))
+{
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_find_decoder() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">if</span>(<span class="hljs-literal">nullptr</span> == (decoderCtx = avcodec_alloc_context3(decoder))){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_alloc_context3 failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">if</span>(avcodec_parameters_to_context(decoderCtx, encoderPara) &lt; <span class="hljs-number">0</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_parameters_to_context() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">if</span>(avcodec_open2(decoderCtx, decoder, <span class="hljs-literal">NULL</span>) &lt; <span class="hljs-number">0</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_open2 failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+swsCtx = sws_getContext(decoderCtx-&gt;width, decoderCtx-&gt;height, decoderCtx-&gt;pix_fmt,
+                        decoderCtx-&gt;width, decoderCtx-&gt;height, FMT_PIC_SHOW,
+                        SWS_BICUBIC, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
+<span class="hljs-keyword">int</span> numBytes = av_image_get_buffer_size(FMT_PIC_SHOW, decoderCtx-&gt;width, decoderCtx-&gt;height, <span class="hljs-number">1</span>);
+showBuffer = (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>*)av_malloc(<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;(numBytes) * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>));
+<span class="hljs-keyword">if</span>(av_image_fill_arrays(showFrame-&gt;data, showFrame-&gt;linesize,
+                        showBuffer
+                            , FMT_PIC_SHOW, decoderCtx-&gt;width, decoderCtx-&gt;height, <span class="hljs-number">1</span>) &lt; <span class="hljs-number">0</span>)
+{
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;av_image_fill_arrays() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+packet = av_packet_alloc();
+av_new_packet(packet, decoderCtx-&gt;width * decoderCtx-&gt;height);
+<span class="hljs-keyword">int</span> ret;
+<span class="hljs-keyword">while</span>(av_read_frame(fileFmtCtx, packet) &gt;= <span class="hljs-number">0</span>){
+    <span class="hljs-keyword">if</span>(packet-&gt;stream_index == nVideoIndex){
+        <span class="hljs-keyword">if</span>(avcodec_send_packet(decoderCtx, packet)&gt;=<span class="hljs-number">0</span>){
+            <span class="hljs-keyword">while</span>((ret = avcodec_receive_frame(decoderCtx, decodedFrame)) &gt;= <span class="hljs-number">0</span>){
+                <span class="hljs-keyword">if</span> (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF)
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ret &lt; <span class="hljs-number">0</span>) {
+                    <span class="hljs-keyword">break</span>;
+                }
+                sws_scale(swsCtx,
+                          decodedFrame-&gt;data, decodedFrame-&gt;linesize,
+                          <span class="hljs-number">0</span>, decoderCtx-&gt;height,
+                          showFrame-&gt;data, showFrame-&gt;linesize);
+                <span class="hljs-function">QImage <span class="hljs-title">img</span><span class="hljs-params">(showFrame-&gt;data[<span class="hljs-number">0</span>], decoderCtx-&gt;width, decoderCtx-&gt;height, QImage::Format_RGB888)</span></span>;
+                <span class="hljs-function">emit <span class="hljs-title">imageReady</span><span class="hljs-params">(img)</span></span>;
+                QThread::msleep(<span class="hljs-number">40</span>);
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x9010;&#x884C;&#x89E3;&#x6790;&#x3002;</p>
+<pre><code class="lang-C++">avdevice_register_all();
+avformat_alloc_context();
+</code></pre>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x5DE5;&#x4F5C;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;<code>AVFormatContext</code>&#xFF0C;<code>AVFormatContext</code>&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5B83;&#x7528;&#x4E8E;&#x8868;&#x793A;&#x97F3;&#x89C6;&#x9891;&#x5C01;&#x88C5;&#x683C;&#x5F0F;&#x7684;&#x4FE1;&#x606F;&#xFF08;&#x5C01;&#x88C5;&#x683C;&#x5F0F;&#x662F;&#x6307;&#x5C06;&#x97F3;&#x9891;&#x548C;&#x89C6;&#x9891;&#x6D41;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x5C01;&#x88C5;&#x683C;&#x5F0F;&#x5305;&#x62EC;AVI&#x3001;MP4&#x3001;MKV&#x7B49;&#xFF09;&#x3002;<code>AVFormatContext</code>&#x5E38;&#x7528;&#x7684;&#x5173;&#x952E;&#x6210;&#x5458;&#x6709;&#xFF1A;</p>
+<ol>
+<li><code>AVInputFormat *iformat</code>: &#x8868;&#x793A;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#xFF0C;&#x5305;&#x62EC;&#x540D;&#x79F0;&#x3001;&#x7248;&#x672C;&#x7B49;&#x4FE1;&#x606F;&#x3002;</li>
+<li><code>AVOutputFormat *oformat</code>: &#x8868;&#x793A;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#xFF0C;&#x540C;&#x6837;&#x5305;&#x62EC;&#x540D;&#x79F0;&#x3001;&#x7248;&#x672C;&#x7B49;&#x4FE1;&#x606F;&#x3002;</li>
+<li><code>unsigned int nb_streams</code>: &#x8868;&#x793A;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x4E2D;&#x6D41;&#x7684;&#x6570;&#x91CF;&#x3002;</li>
+<li><code>AVStream **streams</code>: &#x4E00;&#x4E2A;&#x6307;&#x5411; <code>AVStream</code> &#x7ED3;&#x6784;&#x4F53;&#x6570;&#x7EC4;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x8868;&#x793A;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5404;&#x4E2A;&#x6D41;&#x3002;</li>
+<li><code>AVIOContext *pb</code>: &#x6587;&#x4EF6; I/O &#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x6587;&#x4EF6;&#x8BFB;&#x5199;&#x6240;&#x9700;&#x7684;&#x4FE1;&#x606F;&#x3002;</li>
+<li><code>char *url</code>: &#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;</li>
+<li><code>int64_t duration</code>: &#x8868;&#x793A;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x603B;&#x65F6;&#x957F;&#x3002;</li>
+<li><code>int bit_rate</code>: &#x8868;&#x793A;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x603B;&#x6BD4;&#x7279;&#x7387;&#x3002;</li>
+<li><code>AVDictionary *metadata</code>: &#x5143;&#x6570;&#x636E;&#xFF0C;&#x5305;&#x62EC;&#x6807;&#x9898;&#x3001;&#x4F5C;&#x8005;&#x3001;&#x7F16;&#x7801;&#x5668;&#x7B49;&#x4FE1;&#x606F;&#x3002;</li>
+</ol>
+<pre><code class="lang-C++">QString playUrl = QCoreApplication::applicationDirPath() + <span class="hljs-string">&quot;/test.mp4&quot;</span>;
+<span class="hljs-keyword">if</span> (avformat_open_input(&amp;fileFmtCtx, playUrl.toStdString().c_str(), <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>) != <span class="hljs-number">0</span>) {
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avformat_open_input() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;mp4&#x6587;&#x4EF6;&#xFF0C;&#x51FD;&#x6570;&#x4F1A;&#x6839;&#x636E;&#x6587;&#x4EF6;&#x7684;&#x6269;&#x5C55;&#x540D;&#x6216;&#x6587;&#x4EF6;&#x5934;&#x7684;&#x7279;&#x5F81;&#x6765;&#x68C0;&#x6D4B;&#x6587;&#x4EF6;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x7136;&#x540E;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x89E3;&#x5C01;&#x88C5;&#x5668;&#xFF08;Demuxer&#xFF09;&#x6765;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x4E00;&#x65E6;&#x6210;&#x529F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x4F1A;&#x5BF9;<code>AVFormatContext</code>&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x4E4B;&#x540E;&#x6253;&#x5370;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;<code>AVFormatContext</code>&#x5173;&#x952E;&#x6210;&#x5458;&#x4FE1;&#x606F;&#x3002;</p>
+<pre><code class="lang-C++">qDebug() &lt;&lt; <span class="hljs-string">&quot;file name: &quot;</span> &lt;&lt; fileFmtCtx-&gt;url;
+qDebug() &lt;&lt; <span class="hljs-string">&quot;file iformat: &quot;</span> &lt;&lt; fileFmtCtx-&gt;iformat-&gt;name;
+qDebug() &lt;&lt; <span class="hljs-string">&quot;file duration: &quot;</span> &lt;&lt; fileFmtCtx-&gt;duration &lt;&lt; <span class="hljs-string">&quot; microseconds&quot;</span>;
+qDebug() &lt;&lt; <span class="hljs-string">&quot;file bit_rate: &quot;</span> &lt;&lt; fileFmtCtx-&gt;bit_rate;
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; fileFmtCtx-&gt;nb_streams; i++) {
+    AVStream *stream = fileFmtCtx-&gt;streams[i];
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;Stream &quot;</span> &lt;&lt; i + <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-string">&quot;:&quot;</span>;
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;  Codec: &quot;</span> &lt;&lt; avcodec_get_name(stream-&gt;codecpar-&gt;codec_id);
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;  Duration: &quot;</span> &lt;&lt; stream-&gt;duration &lt;&lt; <span class="hljs-string">&quot; microseconds&quot;</span>;
+}
+AVDictionaryEntry *entry = <span class="hljs-literal">nullptr</span>;
+<span class="hljs-keyword">while</span> ((entry = av_dict_get(fileFmtCtx-&gt;metadata, <span class="hljs-string">&quot;&quot;</span>, entry, AV_DICT_IGNORE_SUFFIX))) {
+    qDebug() &lt;&lt; entry-&gt;key &lt;&lt; <span class="hljs-string">&quot;: &quot;</span> &lt;&lt; entry-&gt;value;
+}
+</code></pre>
+<p>&#x6253;&#x5370;&#x7ED3;&#x679C;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x7684;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-c++">file name:  xxx/test.mp4
+file iformat:  mov,mp4,m4a,<span class="hljs-number">3</span>gp,<span class="hljs-number">3</span>g2,mj2
+file duration:  <span class="hljs-number">27696000</span>  microseconds
+file bit_rate:  <span class="hljs-number">0</span>
+nb_streams:
+Stream  <span class="hljs-number">1</span> :
+  Codec:  h264
+  Duration:  <span class="hljs-number">2492584</span>  microseconds
+Stream  <span class="hljs-number">2</span> :
+  Codec:  aac
+  Duration:  <span class="hljs-number">1328128</span>  microseconds
+metadata:
+major_brand :  mp42
+minor_version :  <span class="hljs-number">0</span>
+compatible_brands :  isommp42
+creation_time :  <span class="hljs-number">2018</span><span class="hljs-number">-07</span><span class="hljs-number">-18</span>T01:<span class="hljs-number">30</span>:<span class="hljs-number">16.000000</span>Z
+location :  +<span class="hljs-number">30.8214</span>+<span class="hljs-number">111.0014</span>/
+location-eng :  +<span class="hljs-number">30.8214</span>+<span class="hljs-number">111.0014</span>/
+com.android.version :  <span class="hljs-number">8.1</span><span class="hljs-number">.0</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x770B;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF1A;</p>
+<p><code>mov,mp4,m4a,3gp,3g2,mj2</code>&#x4EE3;&#x8868;<code>AVFormatContext</code>&#x652F;&#x6301;&#x89E3;&#x6790;&#x3001;&#x8BFB;&#x53D6;&#x548C;&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x683C;&#x5F0F;&#x7684;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x6587;&#x4EF6;&#x6709;2&#x4E2A;&#x6D41;&#xFF0C;1&#x4E2A;h264&#x89C6;&#x9891;&#x6D41;&#xFF0C;1&#x4E2A;aac&#x97F3;&#x9891;&#x6D41;&#x3002;</p>
+<p><code>major_brand</code> &#x548C;<code>compatible_brands</code> &#x662F;&#x4E0E; ISO &#x57FA;&#x672C;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#xFF08;ISO Base Media File Format&#xFF0C;&#x7B80;&#x79F0; ISO BMFF&#xFF09;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x517C;&#x5BB9;&#x6027;&#x3002;</p>
+<p><code>metadata</code>&#x4E2D;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD8;&#x5305;&#x542B;&#x62CD;&#x6444;&#x89C6;&#x9891;&#x7684;Android&#x7248;&#x672C;&#x4FE1;&#x606F;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span>(avformat_find_stream_info(fileFmtCtx, <span class="hljs-literal">NULL</span>) &lt; <span class="hljs-number">0</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avformat_find_stream_info() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>&#x8C03;&#x7528; <code>avformat_find_stream_info</code> &#x51FD;&#x6570;&#x540E;&#xFF0C;<code>AVFormatContext</code> &#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x5269;&#x4E0B;&#x7684;&#x4E00;&#x4E9B;&#x5B57;&#x6BB5;&#x5C06;&#x88AB;&#x586B;&#x5145;&#xFF0C;&#x8FD9;&#x4E9B;&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x4E86;&#x6709;&#x5173;&#x5A92;&#x4F53;&#x6587;&#x4EF6;&#x6D41;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x5728;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E4B;&#x524D;&#xFF0C;<code>AVFormatContext</code> &#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#x53EF;&#x80FD;&#x662F;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x6216;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x4E0A;&#x9762;&#x6253;&#x5370;&#x7684;<code>bit_rate</code>&#x662F;0&#xFF0C;&#x73B0;&#x5728;&#x4F60;&#x80FD;&#x83B7;&#x5F97;&#x771F;&#x5B9E;&#x7684;<code>bit_rate</code>&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>;i &lt; fileFmtCtx-&gt;nb_streams;i++){
+    <span class="hljs-keyword">if</span>(fileFmtCtx-&gt;streams[i]-&gt;codecpar-&gt;codec_type==AVMEDIA_TYPE_VIDEO){
+        nVideoIndex = i;
+    }
+}
+<span class="hljs-keyword">if</span>(nVideoIndex == <span class="hljs-number">-1</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;nVideoIndex == -1&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>&#x901A;&#x8FC7;<code>AVFormatContext-&gt;AVStream-&gt;AVCodecParameters-&gt;AVMediaType</code>&#x627E;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x89C6;&#x9891;&#x6D41;&#x5E76;&#x8BB0;&#x4E0B;&#x6D41;&#x7684;&#x7D22;&#x5F15;&#x3002;</p>
+<pre><code class="lang-c++">codecPara = fileFmtCtx-&gt;streams[nVideoIndex]-&gt;codecpar;
+</code></pre>
+<p>&#x83B7;&#x53D6;&#x7F16;&#x7801;&#x5668;&#x53C2;&#x6570;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span>(<span class="hljs-literal">nullptr</span> == (codec = avcodec_find_decoder(codecPara-&gt;codec_id)))
+{
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_find_decoder() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x7F16;&#x7801;&#x5668;id&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x89E3;&#x7801;&#x5668;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">if</span>(<span class="hljs-literal">nullptr</span> == (decoderCtx = avcodec_alloc_context3(decoder))){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_alloc_context3 failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">if</span>(avcodec_parameters_to_context(decoderCtx, encoderPara) &lt; <span class="hljs-number">0</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_parameters_to_context() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+<span class="hljs-keyword">if</span>(avcodec_open2(decoderCtx, decoder, <span class="hljs-literal">NULL</span>) &lt; <span class="hljs-number">0</span>){
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avcodec_open2 failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x610F;&#x601D;&#x662F;&#xFF1A;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x89E3;&#x7801;&#x5668;&#x4E0A;&#x4E0B;&#x6587;<code>AVCodecContext</code>&#x3002;&#x901A;&#x8FC7;&#x7F16;&#x7801;&#x5668;&#x7684;<code>AVCodecParameters</code>&#x521D;&#x59CB;&#x5316;&#x89E3;&#x7801;&#x5668;&#x7684;<code>AVCodecContext</code>&#x3002;&#x521D;&#x59CB;&#x5316;&#x5E76;&#x6253;&#x5F00;&#x89E3;&#x7801;&#x5668;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x8FD9;3&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x5177;&#x5907;&#x89E3;&#x7801;&#x7684;&#x6761;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-c++">swsCtx = sws_getContext(decoderCtx-&gt;width, decoderCtx-&gt;height, decoderCtx-&gt;pix_fmt,
+                                     decoderCtx-&gt;width, decoderCtx-&gt;height, FMT_PIC_SHOW,
+                                     SWS_BICUBIC, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
+</code></pre>
+<p>&#x914D;&#x7F6E;&#x4E00;&#x4E2A;<code>SwsContext</code>&#xFF0C;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x989C;&#x8272;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x548C;&#x7F29;&#x653E;&#x3002;&#x8FD9;&#x91CC;&#x662F;&#x9488;&#x5BF9;&#x89E3;&#x7801;&#x540E;&#x7684;&#x56FE;&#x50CF;&#x548C;&#x663E;&#x793A;&#x7684;&#x56FE;&#x50CF;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x9700;&#x8981;&#x7ECF;&#x8FC7;&#x4E00;&#x6B21;&#x8F6C;&#x6362;&#x3002;</p>
+<p>&#x7B2C;1~3&#x53C2;&#x6570;&#x4EE3;&#x8868;&#x8F93;&#x5165;&#x56FE;&#x50CF;&#x7684;&#x5BBD;&#x5EA6;&#x3001;&#x9AD8;&#x5EA6;&#x3001;&#x50CF;&#x7D20;&#x683C;&#x5F0F;&#xFF0C;&#x7B2C;3~6&#x53C2;&#x6570;&#x4EE3;&#x8868;&#x8F93;&#x51FA;&#x56FE;&#x50CF;&#x7684;&#x5BBD;&#x5EA6;&#x3001;&#x9AD8;&#x5EA6;&#x3001;&#x50CF;&#x7D20;&#x683C;&#x5F0F;&#x3002;&#x7B2C;7&#x4E2A;&#x4EE3;&#x8868;&#x989C;&#x8272;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x548C;&#x7F29;&#x653E;&#x7684;&#x9009;&#x9879;&#x3002;</p>
+<p>&#x8F93;&#x5165;&#x50CF;&#x7D20;&#x683C;&#x5F0F;&#x5C31;&#x662F;&#x6211;&#x4EEC;mp4&#x6587;&#x4EF6;&#x89C6;&#x9891;&#x6D41;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x51FA;&#x6765;&#x770B;&#x770B;&#xFF08;&#x6253;&#x5370;&#x7ED3;&#x679C;&#x662F;yuv420p&#xFF09;&#x3002;&#x8F93;&#x51FA;&#x7684;&#x683C;&#x5F0F;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x6210;AV_PIX_FMT_RGB24&#x3002;SWS_BICUBIC&#x4EE3;&#x8868;&#x53CC;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x3002;</p>
+<pre><code class="lang-C++">qDebug() &lt;&lt; <span class="hljs-string">&quot;decoderCtx-&gt;pix_fmt:&quot;</span> &lt;&lt; av_get_pix_fmt_name(decoderCtx-&gt;pix_fmt);
+<span class="hljs-comment">//&#x8F93;&#x51FA;</span>
+<span class="hljs-comment">//decoderCtx-&gt;pix_fmt: yuv420p</span>
+</code></pre>
+<pre><code class="lang-c++"><span class="hljs-keyword">int</span> numBytes = av_image_get_buffer_size(FMT_PIC_SHOW, decoderCtx-&gt;width, decoderCtx-&gt;height, <span class="hljs-number">1</span>);
+showBuffer = (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>*)av_malloc(<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;(numBytes) * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>));
+<span class="hljs-keyword">if</span>(av_image_fill_arrays(showFrame-&gt;data, showFrame-&gt;linesize,
+                        showBuffer, FMT_PIC_SHOW, decoderCtx-&gt;width, decoderCtx-&gt;height, <span class="hljs-number">1</span>) &lt; <span class="hljs-number">0</span>)
+{
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;av_image_fill_arrays() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p><code>av_image_get_buffer_size</code>&#x8BA1;&#x7B97;&#x4E86;&#x8BA1;&#x7B97;&#x56FE;&#x50CF;&#x6570;&#x636E;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x3002;<code>av_malloc</code>&#x5206;&#x914D;&#x4E86;1&#x4E2A;&#x5185;&#x5B58;&#x5757;&#x7ED9;<code>showBuffer</code>&#x3002;<code>av_image_fill_arrays</code>&#x7528;&#x56FE;&#x50CF;&#x53C2;&#x6570;&#x548C;<code>showBuffer</code>&#x521D;&#x59CB;&#x5316;<code>AVFrame</code>&#x7684;<code>data</code>&#x548C;<code>linesize</code>&#x6210;&#x5458;&#xFF0C;&#x5E76;&#x4E14;&#x8BA9;<code>AVFrame</code>&#x548C;<code>showBuffer</code>&#x5173;&#x8054;&#x3002;</p>
+<p><code>av_image_fill_arrays</code>&#x6709;2&#x4E2A;&#x5173;&#x952E;&#x53C2;&#x6570;&#xFF1A;</p>
+<ul>
+<li><p><code>uint8_t *dst_data[4]</code></p>
+<p>&#x6307;&#x9488;&#x6570;&#x7EC4;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x6307;&#x5411;&#x56FE;&#x50CF;&#x6570;&#x636E;&#x5E73;&#x9762;&#x7684;&#x6307;&#x9488;&#x3002;&#x5728;&#x56FE;&#x50CF;&#x5904;&#x7406;&#x4E2D;&#xFF0C;&#x56FE;&#x50CF;&#x901A;&#x5E38;&#x88AB;&#x5206;&#x89E3;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x5E73;&#x9762;&#xFF0C;&#x6BCF;&#x4E2A;&#x5E73;&#x9762;&#x90FD;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x5B9A;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x4EAE;&#x5EA6;&#xFF08;Y&#xFF09;&#x3001;&#x8272;&#x5EA6;&#xFF08;U&#x3001;V&#xFF09;&#x7B49;&#x3002;<code>dst_data[0]</code> &#x901A;&#x5E38;&#x6307;&#x5411;&#x4EAE;&#x5EA6;&#x5E73;&#x9762;&#xFF0C;&#x800C; <code>dst_data[1]</code> &#x548C; <code>dst_data[2]</code> &#x5219;&#x5206;&#x522B;&#x6307;&#x5411;&#x8272;&#x5EA6;&#x5E73;&#x9762;&#x3002;<code>dst_data[3]</code> &#x53EF;&#x80FD;&#x7528;&#x4E8E; alpha &#x901A;&#x9053;&#xFF0C;&#x5177;&#x4F53;&#x53D6;&#x51B3;&#x4E8E;&#x56FE;&#x50CF;&#x683C;&#x5F0F;&#x3002;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;RGB&#x56FE;&#x50CF;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5E73;&#x9762;&#xFF0C;&#x56E0;&#x6B64;&#x901A;&#x5E38;&#x4F1A;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A;4&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x4F46;&#x53EA;&#x4F7F;&#x7528;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF08;<code>dst_data[0]</code>&#xFF09;&#x3002;</p>
+</li>
+<li><p><code>int dst_linesize[4]</code></p>
+<p>&#x6574;&#x6570;&#x6570;&#x7EC4;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x5BF9;&#x5E94;&#x5E73;&#x9762;&#x7684;&#x6BCF;&#x884C;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x56FE;&#x50CF;&#x7684;&#x6BCF;&#x4E2A;&#x5E73;&#x9762;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x5B57;&#x8282;&#x6765;&#x8868;&#x793A;&#x7684;&#xFF0C;<code>dst_linesize[0]</code> &#x8868;&#x793A;&#x4EAE;&#x5EA6;&#x5E73;&#x9762;&#x6BCF;&#x884C;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF0C;&#x800C; <code>dst_linesize[1]</code> &#x548C; <code>dst_linesize[2]</code> &#x5219;&#x5206;&#x522B;&#x8868;&#x793A;&#x8272;&#x5EA6;&#x5E73;&#x9762;&#x6BCF;&#x884C;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;<code>dst_linesize[3]</code> &#x53EF;&#x80FD;&#x7528;&#x4E8E; alpha &#x901A;&#x9053;&#x3002;</p>
+</li>
+</ul>
+<pre><code class="lang-C++">av_read_frame(fileFmtCtx, packet) &gt;= <span class="hljs-number">0</span>
+</code></pre>
+<p>&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;<code>AVPacket</code>&#xFF0C;&#x4E00;&#x4E2A;<code>AVPacket</code>&#x7684;&#x8F7D;&#x8377;&#x662F;&#x7F16;&#x7801;&#x5668;&#x8F93;&#x51FA;&#x7684;&#x4E00;&#x4E2A;&#x7F16;&#x7801;&#x540E;&#x7684;&#x5355;&#x5143;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;UDP&#x534F;&#x8BAE;&#x4E2D;&#x7684;&#x5206;&#x5305;&#x3002;</p>
+<pre><code class="lang-C++">avcodec_send_packet(decoderCtx, packet)&gt;=<span class="hljs-number">0</span>
+</code></pre>
+<p>&#x5C06;<code>AVPacket</code>&#x9001;&#x5165;&#x89E3;&#x7801;&#x5668;&#x8FDB;&#x884C;&#x89E3;&#x7801;&#x3002;</p>
+<pre><code class="lang-C++">ret = avcodec_receive_frame(decoderCtx, decodedFrame)) &gt;= <span class="hljs-number">0</span>
+</code></pre>
+<p>&#x5C1D;&#x8BD5;&#x4ECE;&#x89E3;&#x7801;&#x5668;&#x4E2D;&#x63A5;&#x6536;&#x5DF2;&#x89E3;&#x7801;&#x7684;&#x89C6;&#x9891;&#x5E27;&#xFF0C;&#x5E76;&#x5C06;&#x63A5;&#x6536;&#x5230;&#x7684;&#x5E27;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5728;decodedFrame&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x4E2A;<code>AVPacket</code>&#x4E0D;&#x4E00;&#x5B9A;&#x80FD;&#x89E3;&#x7801;&#x51FA;&#x4E00;&#x5E27;&#x56FE;&#x50CF;&#xFF0C;&#x6240;&#x4EE5;<code>avcodec_receive_frame</code>&#x662F;&#x6709;&#x53EF;&#x80FD;&#x8FD4;&#x56DE;&#x5931;&#x8D25;&#x7684;&#x3002;</p>
+<pre><code class="lang-c++">sws_scale(swsCtx,decodedFrame-&gt;data, decodedFrame-&gt;linesize,
+                              <span class="hljs-number">0</span>, decoderCtx-&gt;height,
+                              showFrame-&gt;data, showFrame-&gt;linesize);
+</code></pre>
+<p>&#x5C06;<code>decodedFrame</code>&#x4E2D;&#x7684;&#x6570;&#x636E;&#x4ECE;&#x4E00;&#x4E2A;&#x989C;&#x8272;&#x7A7A;&#x95F4;&#xFF08;YUV&#xFF09;&#x8F6C;&#x6362;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x989C;&#x8272;&#x7A7A;&#x95F4;&#xFF08;RGB&#xFF09;&#xFF0C;&#x5E76;&#x6309;&#x9700;&#x6C42;&#x5BF9;&#x56FE;&#x50CF;&#x8FDB;&#x884C;&#x7F29;&#x653E;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-function">QImage <span class="hljs-title">img</span><span class="hljs-params">(showFrame-&gt;data[<span class="hljs-number">0</span>], decoderCtx-&gt;width, decoderCtx-&gt;height, QImage::Format_RGB888)</span></span>;
+<span class="hljs-function">emit <span class="hljs-title">imageReady</span><span class="hljs-params">(img)</span></span>;
+QThread::msleep(<span class="hljs-number">40</span>);
+</code></pre>
+<p>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x751F;&#x6210;<code>QImage</code>&#x5E76;&#x7528;&#x4FE1;&#x53F7;&#x53D1;&#x51FA;&#x663E;&#x793A;&#xFF0C;&#x5904;&#x7406;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x7684;&#x95F4;&#x9694;&#x662F;40ms&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4EA7;&#x751F;25&#x5E27;/&#x79D2;&#x7684;&#x89C6;&#x9891;&#x3002;</p>
+<p><a href="https://mbd.pub/o/bread/mbd-ZZWTlJ1x" target="_blank">&#x8FD9;&#x91CC;&#x4E0B;&#x8F7D;&#x76F4;&#x63A5;&#x53EF;&#x7528;&#x7684;&#x4EE3;&#x7801;&#x3002;</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"播放本地MP4文件","level":"1.2.1","depth":2,"previous":{"title":"第一章","level":"1.2","depth":1,"ref":"","articles":[{"title":"播放本地MP4文件","level":"1.2.1","depth":2,"path":"chapter1/播放mp4文件.md","ref":"chapter1/播放mp4文件.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/播放mp4文件.md","mtime":"2023-10-05T14:01:04.738Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-05T14:02:25.650Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
