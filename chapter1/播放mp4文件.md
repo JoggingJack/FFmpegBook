@@ -2,7 +2,7 @@
 
 先看效果。
 
-![](http://s226f4g40.hn-bkt.clouddn.com/demo.gif)
+![](https://github.com/JoggingJack/PicRepo/blob/main/FFmpegBook/%E6%92%AD%E6%94%BEMP4%E6%96%87%E4%BB%B6/demo.gif?raw=true)
 
 [这里下载直接可用的代码。](<https://mbd.pub/o/bread/mbd-ZZWTlJ1x>)
 
@@ -10,11 +10,11 @@
 
 音视频源的播放可以概括为以下步骤：
 
-![](http://s226f4g40.hn-bkt.clouddn.com/palyflow.png)
+![](https://github.com/JoggingJack/PicRepo/blob/main/FFmpegBook/%E6%92%AD%E6%94%BEMP4%E6%96%87%E4%BB%B6/palyflow.png?raw=true)
 
 mp4文件也是源数据的一种，用FFmpeg解析mp4文件也遵循这个的过程，在函数层面的解析过程如下所示：
 
-![](http://s226f4g40.hn-bkt.clouddn.com/funflow.png)
+![](https://github.com/JoggingJack/PicRepo/blob/main/FFmpegBook/%E6%92%AD%E6%94%BEMP4%E6%96%87%E4%BB%B6/funflow.png?raw=true)
 
 和上述流程对应的关键代码如下：
 
