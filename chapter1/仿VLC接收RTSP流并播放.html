@@ -1,0 +1,889 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>仿VLC接收RTSP流并播放 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="播放mp4文件.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://joggingjack.fun" target="_blank" class="custom-link">JoggingJack'Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    第一章
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="播放mp4文件.html">
+            
+                <a href="播放mp4文件.html">
+            
+                    
+                    播放mp4文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="仿VLC接收RTSP流并播放.html">
+            
+                <a href="仿VLC接收RTSP流并播放.html">
+            
+                    
+                    仿VLC接收RTSP流并播放
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >仿VLC接收RTSP流并播放</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4EFF;vlc&#x63A5;&#x6536;rtsp&#x6D41;&#x5E76;&#x64AD;&#x653E;">&#x4EFF;VLC&#x63A5;&#x6536;RTSP&#x6D41;&#x5E76;&#x64AD;&#x653E;</h1>
+<h2 id="&#x6548;&#x679C;">&#x6548;&#x679C;</h2>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%92%AD%E6%94%BERTSP.gif" alt=""></p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%AA%8C%E8%AF%81%E6%92%AD%E6%94%BE.gif" alt=""></p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%AA%8C%E8%AF%81%E9%94%99%E8%AF%AF.gif" alt=""></p>
+<h2 id="&#x4EA7;&#x751F;rtsp&#x6D41;">&#x4EA7;&#x751F;RTSP&#x6D41;</h2>
+<p>&#x6BD4;&#x64AD;&#x653E;&#x6587;&#x4EF6;&#x590D;&#x6742;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x4E3A;&#x4E86;&#x63A5;&#x6536;<code>RTSP</code>&#x6D41;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4EA7;&#x751F;<code>RTSP</code>&#x6D41;&#x3002;&#x7B80;&#x5355;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;<code>RTSP</code>&#x63A8;&#x6D41;&#x73AF;&#x5883;&#xFF1A;</p>
+<p>&#x7528;<code>EasyDarwin</code>&#x5F00;&#x542F;<code>RTSP</code>&#x670D;&#x52A1;&#x4F5C;&#x4E3A;<code>RTSP</code>&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/easydarwin.jpg" alt=""></p>
+<p>&#x7528;<code>ffmpeg</code>&#x547D;&#x4EE4;&#x884C;&#x4F5C;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5411;<code>EasyDarwin</code>&#x5FAA;&#x73AF;&#x63A8;&#x9001;&#x4E00;&#x4E2A;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-bash">./ffmpeg.exe -re -stream_loop -1 -i test.mp4 -c copy <span class="hljs-_">-f</span> rtsp rtsp://127.0.0.1/stream
+</code></pre>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/ffmpeg%E7%AE%80%E5%8D%95%E6%8E%A8%E6%B5%81.png" alt=""></p>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x4ECE;EasyDarwin&#x63A5;&#x6536;RTSP&#x6D41;&#x4E86;&#x3002;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A8%E6%B5%81%E5%85%B3%E7%B3%BB.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x7528;<code>vlc</code>&#x63A5;&#x6536;<code>RTSP</code>&#x6D41;&#x770B;&#x770B;&#x3002;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E6%92%AD%E6%94%BErtsp%E6%B5%81.gif" alt=""></p>
+<p>&#x6210;&#x529F;&#x63A5;&#x6536;&#x3002;</p>
+<h2 id="ffmepg&#x63A5;&#x6536;rtsp&#x6D41;&#x4EE3;&#x7801;">FFmepg&#x63A5;&#x6536;RTSP&#x6D41;&#x4EE3;&#x7801;</h2>
+<p>&#x7528;<code>FFmpeg</code>&#x63A5;&#x6536;<code>RTSP</code>&#x6D41;&#x5E76;&#x64AD;&#x653E;&#x7684;&#x6D41;&#x7A0B;&#x548C;&#x64AD;&#x653E;<code>mp4</code>&#x6587;&#x4EF6;&#x7684;&#x6D41;&#x7A0B;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x64AD;&#x653E;<code>mp4</code>&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x64AD;&#x653E;&#x6E90;&#xFF0C;&#x800C;&#x63A5;&#x6536;<code>RTSP</code>&#x6D41;&#x65F6;&#xFF0C;<code>RTSP</code>&#x6D41;&#x4F5C;&#x4E3A;&#x4E86;&#x64AD;&#x653E;&#x6E90;&#xFF1A;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E7%A8%8B.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x4F9D;&#x65E7;&#x770B;&#x4E0B;&#x6D41;&#x7A0B;&#x4E2D;&#x7684;&#x5173;&#x952E;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-keyword">if</span> (avformat_open_input(&amp;fileFmtCtx, url.toStdString().c_str(), <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>) != <span class="hljs-number">0</span>) {
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;avformat_open_input() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>&#x7528;&#x4E8E;&#x6253;&#x5F00;&#x4E00;&#x4E2A;RTSP&#x5730;&#x5740;&#xFF0C;&#x8DDF;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x76F8;&#x6BD4;&#xFF0C;&#x4E0D;&#x4EC5;&#x8981;&#x67E5;&#x627E;&#x6D41;&#x4FE1;&#x606F;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x548C;<code>RTSP</code>&#x670D;&#x52A1;&#x5668;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#xFF0C;&#x8BA9;<code>RTSP</code>&#x670D;&#x52A1;&#x5668;&#x5F00;&#x59CB;&#x63A8;&#x6D41;&#x3002;</p>
+<p>&#x63A5;&#x6536;&#x4E0A;&#x8FF0;<code>RTSP</code>&#x6D41;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x6253;&#x5370;<code>AVFormatContext</code>&#x7684;&#x76F8;&#x5173;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-C++">qDebug() &lt;&lt; <span class="hljs-string">&quot;stream name: &quot;</span> &lt;&lt; streamFmtCtx-&gt;url;
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;stream iformat: &quot;</span> &lt;&lt; streamFmtCtx-&gt;iformat-&gt;name;
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;stream duration: &quot;</span> &lt;&lt; streamFmtCtx-&gt;duration &lt;&lt; <span class="hljs-string">&quot; microseconds&quot;</span>;
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;stream bit_rate: &quot;</span> &lt;&lt; streamFmtCtx-&gt;bit_rate;
+<span class="hljs-comment">/* 
+stream name:  rtsp://127.0.0.1/stream
+stream iformat:  rtsp
+stream duration:  -9223372036854775808  microseconds
+stream bit_rate:  0
+*/</span>
+</code></pre>
+<p>&#x8FD9;&#x6B21;&#x7531;&#x4E8E;&#x662F;<code>RTSP</code>&#x6D41;&#xFF0C;&#x5E76;&#x4E0D;&#x80FD;&#x83B7;&#x53D6;&#x51C6;&#x786E;&#x7684;<code>duration</code>&#x3002;&#x7EE7;&#x7EED;&#x6253;&#x5370;&#x6D41;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-C++">qDebug() &lt;&lt; <span class="hljs-string">&quot;nb_streams:&quot;</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; streamFmtCtx-&gt;nb_streams; i++) {
+        AVStream *stream = streamFmtCtx-&gt;streams[i];
+        qDebug() &lt;&lt; <span class="hljs-string">&quot;Stream &quot;</span> &lt;&lt; i + <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-string">&quot;:&quot;</span>;
+        qDebug() &lt;&lt; <span class="hljs-string">&quot;  Codec: &quot;</span> &lt;&lt; avcodec_get_name(stream-&gt;codecpar-&gt;codec_id);
+        qDebug() &lt;&lt; <span class="hljs-string">&quot;  Duration: &quot;</span> &lt;&lt; stream-&gt;duration &lt;&lt; <span class="hljs-string">&quot; microseconds&quot;</span>;
+    }
+<span class="hljs-comment">/*
+nb_streams:
+Stream  1 :
+  Codec:  h264
+  Duration:  -9223372036854775808  microseconds
+Stream  2 :
+  Codec:  aac
+  Duration:  -9223372036854775808  microseconds
+*/</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x548C;&#x4E0A;&#x6B21;&#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x7ED3;&#x679C;&#x4E00;&#x6837;&#xFF0C;&#x5305;&#x62EC;1&#x4E2A;<code>H264</code>&#x89C6;&#x9891;&#x6D41;&#x548C;1&#x4E2A;<code>AAC</code>&#x97F3;&#x9891;&#x6D41;&#x3002;</p>
+<pre><code class="lang-C++">swsCtx = sws_getContext(decoderCtx-&gt;width, decoderCtx-&gt;height, decoderCtx-&gt;pix_fmt,
+                                     decoderCtx-&gt;width, decoderCtx-&gt;height, FMT_PIC_SHOW,
+                                     SWS_BICUBIC, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
+qDebug() &lt;&lt; <span class="hljs-string">&quot;decoderCtx-&gt;pix_fmt:&quot;</span> &lt;&lt; av_get_pix_fmt_name(decoderCtx-&gt;pix_fmt);
+<span class="hljs-comment">//decoderCtx-&gt;pix_fmt: yuv420p</span>
+</code></pre>
+<p><code>sws_getContext()</code>&#x7528;&#x4E8E;&#x5C06;<code>RTSP</code>&#x6D41;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x4E3A;&#x5C06;&#x8981;&#x663E;&#x793A;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;<code>yuv420p</code>=&gt;<code>AV_PIX_FMT_RGB24</code>&#x3002;</p>
+<pre><code class="lang-C++"><span class="hljs-keyword">int</span> numBytes = av_image_get_buffer_size(FMT_PIC_SHOW, decoderCtx-&gt;width, decoderCtx-&gt;height, <span class="hljs-number">1</span>);
+showBuffer = (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>*)av_malloc(<span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>&gt;(numBytes) * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>));
+<span class="hljs-keyword">if</span>(av_image_fill_arrays(showFrame-&gt;data, showFrame-&gt;linesize,
+                        showBuffer, FMT_PIC_SHOW, decoderCtx-&gt;width, decoderCtx-&gt;height, <span class="hljs-number">1</span>) &lt; <span class="hljs-number">0</span>)
+{
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;av_image_fill_arrays() failed&quot;</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p><code>av_image_get_buffer_size</code>&#x8BA1;&#x7B97;&#x4E86;&#x8BA1;&#x7B97;&#x56FE;&#x50CF;&#x6570;&#x636E;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#x3002;<code>av_malloc</code>&#x5206;&#x914D;&#x4E86;1&#x4E2A;&#x5185;&#x5B58;&#x5757;&#x7ED9;<code>showBuffer</code>&#x3002;<code>av_image_fill_arrays</code>&#x7528;&#x56FE;&#x50CF;&#x53C2;&#x6570;&#x548C;<code>showBuffer</code>&#x521D;&#x59CB;&#x5316;<code>AVFrame</code>&#x7684;<code>data</code>&#x548C;<code>linesize</code>&#x6210;&#x5458;&#xFF0C;&#x5E76;&#x4E14;&#x8BA9;<code>AVFrame</code>&#x548C;<code>showBuffer</code>&#x5173;&#x8054;&#x3002;</p>
+<pre><code class="lang-C++"><span class="hljs-keyword">while</span>(av_read_frame(streamFmtCtx, packet) &gt;= <span class="hljs-number">0</span>){
+    <span class="hljs-keyword">if</span>(packet-&gt;stream_index == nVideoIndex){
+        <span class="hljs-keyword">if</span>(avcodec_send_packet(decoderCtx, packet)&gt;=<span class="hljs-number">0</span>){
+            <span class="hljs-keyword">while</span>((ret = avcodec_receive_frame(decoderCtx, decodedFrame)) &gt;= <span class="hljs-number">0</span>){
+                <span class="hljs-comment">//...</span>
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x548C;&#x64AD;&#x653E;<code>mp4</code>&#x6587;&#x4EF6;&#x7C7B;&#x4F3C;&#x7684;&#x89E3;&#x7801;&#x6B65;&#x9AA4;&#xFF0C;&#x4ECE;<code>RTSP</code>&#x6D41;&#x4E2D;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;<code>AVPacket</code>&#xFF0C;&#x5C06;<code>AVPacket</code>&#x9001;&#x5165;&#x89E3;&#x7801;&#x5668;&#x8FDB;&#x884C;&#x89E3;&#x7801;&#xFF0C;&#x5C1D;&#x8BD5;&#x4ECE;&#x89E3;&#x7801;&#x5668;&#x4E2D;&#x63A5;&#x6536;&#x5DF2;&#x89E3;&#x7801;&#x7684;&#x89C6;&#x9891;&#x5E27;&#xFF0C;&#x5E76;&#x5C06;&#x63A5;&#x6536;&#x5230;&#x7684;&#x5E27;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5728;<code>decodedFrame</code>&#x4E2D;&#x3002;</p>
+<p>&#x7ECF;&#x8FC7;&#x4E0A;&#x8FF0;&#x57FA;&#x672C;&#x6B65;&#x9AA4;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x548C;<code>VLC</code>&#x4E00;&#x6837;&#xFF0C;&#x4ECE;RTSP&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;<code>RTSP</code>&#x6D41;&#x5E76;&#x64AD;&#x653E;&#x4E86;&#x3002;</p>
+<h2 id="rtsp&#x534F;&#x8BAE;&#x7B80;&#x8FF0;&#x53CA;&#x9A8C;&#x8BC1;">RTSP&#x534F;&#x8BAE;&#x7B80;&#x8FF0;&#x53CA;&#x9A8C;&#x8BC1;</h2>
+<p><code>FFmpeg</code>&#x5185;&#x90E8;&#x5C06;RTSP&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x5904;&#x7406;&#x5F97;&#x5F88;&#x597D;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x6709;&#x5FC5;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;<code>RTSP</code>&#x534F;&#x8BAE;&#x3002;<code>RTSP</code>&#x5168;&#x79F0;<code>Real Time Sreaming Protocol</code>&#xFF0C;&#x662F;<code>TCP/IP</code>&#x534F;&#x8BAE;&#x4F53;&#x7CFB;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5C42;&#x534F;&#x8BAE;&#x3002;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x7531;<code>RTP/RTCP</code>&#x5B8C;&#x6210;&#xFF0C;&#x5E95;&#x5C42;&#x901A;&#x8FC7;<code>TCP/UDP</code>&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;RTSP&#x7684;&#x6536;&#x6D41;&#x534F;&#x8BAE;&#x5C42;&#x7684;&#x4EA4;&#x4E92;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E5%8D%8F%E8%AE%AE%E6%B5%81%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt=""></p>
+<p>&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x63A8;&#x6D41;&#x73AF;&#x5883;&#x4E0B;&#xFF08;&#x7531;&#x4E8E;<code>EasyDarwin</code>&#x4F3C;&#x4E4E;&#x52A0;&#x5BC6;&#x4E86;&#x67D0;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x4E86;&#x4E00;&#x4E2A;&#x5176;&#x4ED6;&#x7684;<code>RTSP</code>&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6548;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF09;&#xFF0C;&#x7528;<code>VLC</code>&#x6536;&#x6D41;&#xFF0C;&#x5E76;&#x7528;<code>wireshark</code>&#x6293;&#x5305;&#x770B;&#x770B;&#x534F;&#x8BAE;&#x6D41;&#x7A0B;&#x662F;&#x4E0D;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E6%8E%A5%E6%94%B6%E6%8A%93%E5%8C%85.jpg" alt=""></p>
+<p>&#x76F4;&#x63A5;&#x770B;&#x770B;&#x6BCF;&#x6761;&#x4FE1;&#x606F;&#x90FD;&#x662F;&#x4EC0;&#x4E48;&#xFF1A;</p>
+<p>client =&gt; server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: OPTIONS rtsp://127.0.0.1:554/stream RTSP/1.0\r\n
+        Method: OPTIONS
+        URL: rtsp://127.0.0.1:554/stream
+    CSeq: 2\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    \r\n
+</code></pre>
+<p>client&#x53D1;&#x9001;<code>OPTIONS</code>&#x5411;<code>rtsp://127.0.0.1:554/stream</code>&#x8BE2;&#x95EE;server&#x652F;&#x6301;&#x54EA;&#x4E9B;<code>RTSP</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<p>server=&gt; client</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Response: RTSP/1.0 200 OK\r\n
+        Status: 200
+    CSeq: 2\r\n
+    Session: 4J_bOCNSg
+    Public: DESCRIBE, SETUP, TEARDOWN, PLAY, PAUSE, OPTIONS, ANNOUNCE, RECORD\r\n
+    \r\n
+</code></pre>
+<p>server&#x56DE;&#x590D;&#x652F;&#x6301;<code>DESCRIBE, SETUP, TEARDOWN, PLAY, PAUSE, OPTIONS, ANNOUNCE, RECORD</code></p>
+<p>client =&gt; server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: DESCRIBE rtsp://127.0.0.1:554/stream RTSP/1.0\r\n
+        Method: DESCRIBE
+        URL: rtsp://127.0.0.1:554/stream
+    CSeq: 3\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    Accept: application/sdp\r\n
+    \r\n
+</code></pre>
+<p>client&#x8BF7;&#x6C42;&#x5A92;&#x4F53;&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#xFF0C;&#x683C;&#x5F0F;&#x4E3A;<code>application/sdp</code>&#x3002;</p>
+<p>&#x4E00;&#x822C;server&#x4F1A;&#x8FDB;&#x884C;&#x7528;&#x6237;&#x8BA4;&#x8BC1;&#xFF0C;&#x5982;&#x679C;&#x672A;&#x643A;&#x5E26;Authorization&#x9274;&#x6743;&#x4FE1;&#x606F;&#xFF0C;&#x6216;&#x8005;&#x8BA4;&#x8BC1;&#x5931;&#x8D25;&#xFF0C;server&#x4F1A;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x53F7;&#x4E3A;401&#x7684;&#x54CD;&#x5E94;&#xFF0C;client&#x63A5;&#x6536;&#x5230;401&#x54CD;&#x5E94;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x6839;&#x636E;&#x5DF2;&#x77E5;&#x7684;&#x7528;&#x6237;&#x9274;&#x6743;&#x4FE1;&#x606F;&#xFF0C;&#x751F;&#x6210;Authorization&#xFF0C;&#x518D;&#x6B21;&#x53D1;&#x9001;<code>DESCRIBE</code>&#xFF0C;&#x5982;&#x679C;&#x8BA4;&#x8BC1;&#x6210;&#x529F;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x643A;&#x5E26;&#x6709;<code>SDP</code>&#x7684;&#x54CD;&#x5E94;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x662F;&#x5426;&#x8FDB;&#x884C;&#x8BA4;&#x8BC1;&#x548C;<code>RTSP</code>&#x670D;&#x52A1;&#x5668;&#x6709;&#x5173;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x4E3A;<code>EasyDarwin</code>&#x8BBE;&#x7F6E;&#x8BA4;&#x8BC1;&#x3002;</p>
+<p>server=&gt; client</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Response: RTSP/1.0 200 OK\r\n
+    CSeq: 3\r\n
+    Session: _ZLZ7_NSR
+    Content-type: application/sdp
+    Content-length: 511
+    \r\n
+    Session Description Protocol
+        Session Description Protocol Version (v): 0
+        Owner/Creator, Session Id (o): - 0 0 IN IP4 127.0.0.1
+        Session Name (s): No Name
+        Connection Information (c): IN IP4 127.0.0.1
+        Time Description, active time (t): 0 0
+        Session Attribute (a): tool:libavformat 58.76.100
+        Media Description, name and address (m): video 0 RTP/AVP 96
+        Bandwidth Information (b): AS:1894
+        Media Attribute (a): rtpmap:96 H264/90000
+        Media Attribute (a): fmtp:96 packetization-mode=1; sprop-parameter-sets=Z2QAKqwspQFAFumoCAgKAAADAAIAAAMAYcTAAc/YABW+f4xwEA==,aOkJNSU=; profile-level-id=64002A
+        Media Attribute (a): control:streamid=0
+        Media Description, name and address (m): audio 0 RTP/AVP 97
+        Bandwidth Information (b): AS:317
+        Media Attribute (a): rtpmap:97 MPEG4-GENERIC/48000/2
+        Media Attribute (a): fmtp:97 profile-level-id=1;mode=AAC-hbr;sizelength=13;indexlength=3;indexdeltalength=3; config=1190
+        Media Attribute (a): control:streamid=1
+</code></pre>
+<p>server&#x8FD4;&#x56DE;<code>SDP</code>&#x4FE1;&#x606F;&#xFF0C;&#x544A;&#x8BC9;client&#x5F53;&#x524D;&#x6709;&#x54EA;&#x4E9B;&#x97F3;&#x89C6;&#x9891;&#x6D41;&#x548C;&#x5C5E;&#x6027;&#xFF0C;sdp&#x534F;&#x8BAE;&#x4E0D;&#x505A;&#x5C55;&#x5F00;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x8981;&#x5173;&#x6CE8;&#x7684;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x4FE1;&#x606F;&#x662F;&#xFF1A;server&#x53EF;&#x4EE5;&#x53D1;&#x9001;<code>streamid=0</code>&#x7684;<code>H264</code>&#x89C6;&#x9891;&#x6D41;&#x548C;<code>streamid=1</code>&#x7684;<code>AAC</code>&#x97F3;&#x9891;&#x6D41;&#x3002;</p>
+<p>client =&gt; server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: SETUP rtsp://127.0.0.1:554/stream/streamid=0 RTSP/1.0\r\n
+        Method: SETUP
+        URL: rtsp://127.0.0.1:554/stream/streamid=0
+    CSeq: 4\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    Transport: RTP/AVP;unicast;client_port=52024-52025
+    \r\n
+</code></pre>
+<p>client&#x53D1;&#x9001;<code>SETUP</code>&#x544A;&#x8BC9;server&#x9700;&#x8981;&#x5EFA;&#x7ACB;<code>streamid=0</code>&#x5373;&#x89C6;&#x9891;&#x6D41;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x8FD9;&#x91CC;<code>RTP/AVP</code>&#x8868;&#x793A;&#x901A;&#x8FC7;<code>UDP</code>&#x4F20;&#x8F93;&#xFF0C;<code>unicast</code>&#x8868;&#x793A;&#x5355;&#x64AD;&#xFF0C;<code>client_port=52024-52025</code>&#x9700;&#x8981;&#x5355;&#x72EC;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#xFF0C;&#x524D;&#x9762;&#x8BF4;&#x5230;<code>RTSP</code>&#x534F;&#x8BAE;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x901A;&#x8FC7;<code>RTP+RTCP</code>&#x5B8C;&#x6210;&#x3002;<code>RTP</code>&#x548C;<code>RTCP</code>&#x90FD;&#x662F;&#x5EFA;&#x7ACB;&#x5728;<code>UDP</code>&#x4E4B;&#x4E0A;&#x7684;&#xFF0C;<code>RTP</code>&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;1&#x4E2A;&#x5076;&#x6570;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x800C;<code>RTCP</code>&#x5219;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;<code>RTP</code>&#x7AEF;&#x53E3;&#x7684;&#x4E0B;1&#x4E2A;&#x5947;&#x6570;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x5C31;&#x662F;&#x8FD9;&#x91CC;&#x7684;52024&#x548C;52025&#x3002;</p>
+<p>server =&gt; client</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Response: RTSP/1.0 200 OK\r\n
+        Status: 200
+    CSeq: 4\r\n
+    Session: 4J_bOCNSg
+    Transport: RTP/AVP;unicast;client_port=52024-52025
+    \r\n
+</code></pre>
+<p>server&#x5411;client&#x8FD4;&#x56DE;&#x786E;&#x8BA4;&#x3002;</p>
+<p>client =&gt; server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: SETUP rtsp://127.0.0.1:554/stream/streamid=1 RTSP/1.0\r\n
+        Method: SETUP
+        URL: rtsp://127.0.0.1:554/stream/streamid=1
+    CSeq: 5\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    Transport: RTP/AVP;unicast;client_port=52028-52029
+    Session: 4J_bOCNSg
+    \r\n
+</code></pre>
+<p>client&#x544A;&#x8BC9;server&#x9700;&#x8981;&#x5EFA;&#x7ACB;<code>streamid=1</code>&#x7684;&#x97F3;&#x9891;&#x6D41;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;<code>RTP</code>&#x548C;<code>RTCP</code>&#x7684;&#x7AEF;&#x53E3;&#x5206;&#x522B;&#x5728;52028&#x548C;52029&#x3002;</p>
+<p>server =&gt; client</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Response: RTSP/1.0 200 OK\r\n
+        Status: 200
+    Transport: RTP/AVP;unicast;client_port=52028-52029
+    CSeq: 5\r\n
+    Session: 4J_bOCNSg
+    \r\n
+</code></pre>
+<p>server&#x5411;client&#x8FD4;&#x56DE;&#x786E;&#x8BA4;&#x3002;</p>
+<p>client=&gt;server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: PLAY rtsp://127.0.0.1:554/stream RTSP/1.0\r\n
+        Method: PLAY
+        URL: rtsp://127.0.0.1:554/stream
+    CSeq: 6\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    Session: 4J_bOCNSg
+    Range: npt=0.000-\r\n
+    \r\n
+</code></pre>
+<p>client&#x53D1;&#x9001;<code>PLAY</code>&#x544A;&#x8BC9;server&#x5F00;&#x59CB;&#x4F20;&#x8F93;&#xFF0C;<code>Range</code>&#x4EE3;&#x8868;&#x5A92;&#x4F53;&#x64AD;&#x653E;&#x65F6;&#x95F4;&#xFF0C;server&#x4F1A;&#x6839;&#x636E;<code>Range</code>&#x7684;&#x503C;&#x64AD;&#x653E;&#x6307;&#x5B9A;&#x6BB5;&#x7684;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x5BF9;&#x4E8E;&#x5B9E;&#x65F6;&#x6D41;&#xFF0C;&#x4E00;&#x822C;&#x53EA;&#x4F1A;&#x6307;&#x5B9A;&#x8D77;&#x70B9;&#xFF0C;&#x5373;<code>Range: npt=0.000-</code></p>
+<p>server=&gt;client</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Response: RTSP/1.0 200 OK\r\n
+        Status: 200
+    CSeq: 6\r\n
+    Session: 4J_bOCNSg
+    Range: npt=0.000-\r\n
+    \r\n
+</code></pre>
+<p>server&#x8FD4;&#x56DE;&#x786E;&#x8BA4;&#xFF0C;&#x4F7F;&#x7528;&#x540C;&#x4E00;<code>Session</code>&#x3002;</p>
+<p>client=&gt;server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: TEARDOWN rtsp://127.0.0.1:554/stream RTSP/1.0\r\n
+        Method: TEARDOWN
+        URL: rtsp://127.0.0.1:554/stream
+    CSeq: 7\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    Session: 4J_bOCNSg
+    \r\n
+</code></pre>
+<p>client&#x53D1;&#x9001;<code>TEARDOWN</code>&#x53D1;&#x8D77;&#x505C;&#x6B62;&#x6D41;&#x4F20;&#x8F93;&#x8BF7;&#x6C42;&#x3002;</p>
+<p>server=&gt;client</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Response: RTSP/1.0 200 OK\r\n
+        Status: 200
+    CSeq: 7\r\n
+    Session: 4J_bOCNSg
+    \r\n
+</code></pre>
+<p>server&#x8FD4;&#x56DE;&#x786E;&#x8BA4;&#xFF0C;&#x4F7F;&#x7528;&#x540C;&#x4E00;<code>Session</code>&#xFF0C;&#x505C;&#x6B62;&#x6D41;&#x4F20;&#x8F93;&#x3002;</p>
+<h2 id="&#x642D;&#x5EFA;&#x6458;&#x8981;&#x8BA4;&#x8BC1;&#x73AF;&#x5883;">&#x642D;&#x5EFA;&#x6458;&#x8981;&#x8BA4;&#x8BC1;&#x73AF;&#x5883;</h2>
+<p>&#x4E0A;&#x9762;&#x8BF4;&#x5230;&#x4E86;server&#x53EF;&#x80FD;&#x4F1A;&#x8FDB;&#x884C;&#x7528;&#x6237;&#x8BA4;&#x8BC1;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x5F97;&#x521B;&#x9020;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x73AF;&#x5883;&#xFF0C;&#x76F4;&#x63A5;&#x770B;&#x770B;<code>EasyDarwin</code>&#x80FD;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x9009;&#x62E9;&#x8BA4;&#x8BC1;&#xFF0C;&#x6253;&#x5F00;<code>easydarwin.ini</code>&#xFF1A;</p>
+<pre><code class="lang-ini"><span class="hljs-section">[http]</span>
+<span class="hljs-attr">port</span>=<span class="hljs-number">10008</span>
+<span class="hljs-attr">default_username</span>=admin
+<span class="hljs-attr">default_password</span>=admin
+<span class="hljs-comment">#...</span>
+<span class="hljs-comment">;&#x662F;&#x5426;&#x4F7F;&#x80FD;&#x5411;&#x670D;&#x52A1;&#x5668;&#x63A8;&#x6D41;&#x6216;&#x8005;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x64AD;&#x653E;&#x65F6;&#x9A8C;&#x8BC1;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;. [&#x6CE8;&#x610F;] &#x56E0;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5E76;&#x4E0D;&#x4FDD;&#x5B58;&#x660E;&#x6587;&#x5BC6;&#x7801;&#xFF0C;&#x6240;&#x4EE5;&#x63A8;&#x9001;&#x6216;&#x8005;&#x64AD;&#x653E;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x8BE5;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x7684;md5&#x540E;&#x7684;&#x503C;&#x3002;</span>
+<span class="hljs-comment">;password should be the hex of md5(original password)</span>
+<span class="hljs-attr">authorization_enable</span>=<span class="hljs-number">0</span>
+<span class="hljs-comment">#...</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>authorization_enable</code>&#x53D8;&#x91CF;&#x662F;&#x63A7;&#x5236;&#x8BA4;&#x8BC1;&#x7684;&#xFF0C;&#x628A;&#x5B83;&#x7684;&#x503C;&#x6539;&#x4E3A;1&#xFF0C;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#x539F;&#x6765;&#x7684;<code>ffmpeg</code>&#x547D;&#x4EE4;&#x63A8;&#x6D41;&#x4E0D;&#x6210;&#x529F;&#x4E86;&#x3002;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A8%E6%B5%81%E4%B8%8D%E6%88%90%E5%8A%9F.jpg" alt=""></p>
+<p>&#x90A3;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5411;EasyDarwin&#x63A8;&#x6D41;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x8BA4;&#x8BC1;&#x3002;&#x4ECE;&#x6CE8;&#x91CA;&#x4E0A;&#x6765;&#x770B;&#xFF0C;&#x9700;&#x8981;&#x52A0;&#x5165;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x7684;<code>md5</code>&#x503C;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x6B63;&#x786E;&#x7684;&#x53C2;&#x6570;&#x518D;&#x63A8;&#x6D41;&#xFF08;&#x4E0B;&#x9762;mad5ofpassword&#x6362;&#x6210;&#x4F60;&#x5BC6;&#x7801;&#x7684;<code>md5</code>&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-bash">./ffmpeg.exe -re -stream_loop -1 -i test.mp4 -c copy <span class="hljs-_">-f</span> rtsp rtsp://admin:mad5ofpassword@127.0.0.1/stream
+</code></pre>
+<p>&#x6210;&#x529F;&#x4E86;&#xFF1A;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/ffmpeg%E5%90%91%E6%9C%89%E8%AE%A4%E8%AF%81%E7%9A%84%E6%8E%A8%E6%B5%81%E6%88%90%E5%8A%9F.jpg" alt=""></p>
+<p>&#x8FD9;&#x65F6;&#x5019;&#x7528;<code>vlc</code>&#x63A5;&#x6536;&#x8BD5;&#x8BD5;&#xFF0C;&#x679C;&#x7136;&#x8981;&#x8FDB;&#x884C;&#x8BA4;&#x8BC1;&#xFF0C;&#x8981;&#x6C42;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#xFF1A;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81.jpg" alt=""></p>
+<p>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x5BC6;&#x7801;&#x4E5F;&#x8981;&#x8F93;&#x5165;<code>md5</code>&#x540E;&#x7684;&#x503C;&#x3002;&#x8F93;&#x5165;&#x6B63;&#x786E;&#x7684;&#x5BC6;&#x7801;&#x540E;&#xFF0C;<code>vlc</code>&#x53EF;&#x4EE5;&#x63A5;&#x6536;<code>RTSP</code>&#x6D41;&#x4E86;:</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E8%AE%A4%E8%AF%81%E5%90%8E%E6%92%AD%E6%94%BE.gif" alt=""></p>
+<p>&#x540C;&#x6837;&#x5730;&#xFF0C;&#x7528;<code>wireshark</code>&#x6293;&#x5305;&#x770B;&#x770B;&#x5E26;&#x6709;&#x8BA4;&#x8BC1;&#x7684;&#x6D41;&#x7A0B;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#xFF1A;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%89%B4%E6%9D%83.jpg" alt=""></p>
+<p>client=&gt;server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: DESCRIBE rtsp://127.0.0.1:554/stream RTSP/1.0\r\n
+        Method: DESCRIBE
+        URL: rtsp://127.0.0.1:554/stream
+    CSeq: 6\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    Accept: application/sdp\r\n
+    \r\n
+</code></pre>
+<p>&#x9996;&#x5148;client&#x540C;&#x6837;&#x53D1;&#x8D77;<code>DESCRIBE</code></p>
+<p>server=&gt;client</p>
+<pre><code class="lang-HTTP">Real Time Streaming Protocol
+    Response: RTSP/1.0 401 Unauthorized\r\n
+        Status: 401
+    CSeq: 6\r\n
+    Session: ayQBojNIg
+    WWW-Authenticate: Digest realm=&quot;EasyDarwin&quot;, nonce=&quot;539c6afee35b8edd354e983a6af947bf&quot;, algorithm=&quot;MD5&quot;\r\n
+    \r\n
+</code></pre>
+<p>server&#x8FD4;&#x56DE;401&#xFF0C;<code>WWW-Authenticate: Digest</code>&#x8868;&#x793A;&#x9700;&#x8981;&#x6458;&#x8981;&#x8BA4;&#x8BC1;&#xFF0C;<code>realm</code>&#x548C;<code>nonce</code>&#x7528;&#x4E8E;&#x751F;&#x6210;<code>response</code>&#xFF0C;<code>algorithm=&quot;MD5&quot;</code>&#x8868;&#x793A;&#x9700;&#x8981;<code>md5</code>&#x7B97;&#x6CD5;&#x751F;&#x6210;<code>response</code>&#x3002;</p>
+<p>client=&gt;server</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Request: DESCRIBE rtsp://127.0.0.1:554/stream RTSP/1.0\r\n
+        Method: DESCRIBE
+        URL: rtsp://127.0.0.1:554/stream
+    CSeq: 7\r\n
+    Authorization: Digest username=&quot;admin&quot;, realm=&quot;EasyDarwin&quot;, nonce=&quot;539c6afee35b8edd354e983a6af947bf&quot;, uri=&quot;rtsp://127.0.0.1:554/stream&quot;, response=&quot;d6a48b37f2010b3ddfad1eef18692648&quot;\r\n
+    User-Agent: LibVLC/3.0.18 (LIVE555 Streaming Media v2016.11.28)\r\n
+    Accept: application/sdp\r\n
+    \r\n
+</code></pre>
+<p>client&#x7528;&#x5BF9;&#x5E94;&#x7B97;&#x6CD5;&#x751F;&#x6210;<code>response</code>&#x5E76;&#x8FD4;&#x56DE;&#x7ED9;server&#xFF0C;<code>response</code>&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x5355;&#x72EC;&#x518D;&#x8BB2;&#x3002;</p>
+<p>server=&gt;client</p>
+<pre><code class="lang-http">Real Time Streaming Protocol
+    Response: RTSP/1.0 200 OK\r\n
+        Status: 200
+    Content-length: 511
+    CSeq: 7\r\n
+    Session: ayQBojNIg
+    \r\n
+    Data (511 bytes)
+</code></pre>
+<p>server&#x9A8C;&#x8BC1;<code>response</code>&#x901A;&#x8FC7;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;200&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5176;&#x5B9E;&#x548C;&#x4E0A;&#x9762;&#x4E00;&#x6837;&#x8FD4;&#x56DE;&#x4E86;<code>SDP</code>&#x4FE1;&#x606F;&#xFF08;Data 511 bytes&#x4E2D;&#x7684;&#x4FE1;&#x606F;&#xFF09;&#xFF0C;&#x4F46;<code>EasyDarwin</code>&#x662F;&#x505A;&#x4E86;&#x52A0;&#x5BC6;&#x5904;&#x7406;&#x8FD8;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x662F;&#x65E0;&#x6CD5;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x7684;&#x3002;</p>
+<p>&#x4E4B;&#x540E;&#x7684;&#x6D41;&#x7A0B;&#x5C31;&#x548C;&#x6CA1;&#x6709;&#x6458;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x4E00;&#x6837;&#x7684;&#x4E86;&#x3002;</p>
+<h2 id="&#x5B8C;&#x5584;&#x4EE3;&#x7801;&#xFF0C;&#x5904;&#x7406;&#x6458;&#x8981;&#x8BA4;&#x8BC1;">&#x5B8C;&#x5584;&#x4EE3;&#x7801;&#xFF0C;&#x5904;&#x7406;&#x6458;&#x8981;&#x8BA4;&#x8BC1;</h2>
+<p>&#x65E2;&#x7136;&#x53EF;&#x80FD;&#x4F1A;&#x5B58;&#x5728;&#x8BA4;&#x8BC1;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x4EE3;&#x7801;&#x4E2D;&#x5F97;&#x5904;&#x7406;server&#x6709;&#x8BA4;&#x8BC1;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5426;&#x5219;&#x80AF;&#x5B9A;&#x6536;&#x4E0D;&#x5230;<code>RTSP</code>&#x6D41;&#x3002;&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5B9A;&#x4F4D;server&#x7684;&#x8FD4;&#x56DE;&#x5728;&#x54EA;&#x91CC;&#x88AB;&#x6355;&#x6349;&#x4E86;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E00;&#x756A;&#x5C1D;&#x8BD5;&#xFF0C;&#x53D1;&#x73B0;&#x5728;&#x65B9;&#x6CD5;<code>avformat_open_input</code>&#x4E2D;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-keyword">if</span> ((ret = avformat_open_input(&amp;streamFmtCtx, url.toStdString().c_str(), <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>)) != <span class="hljs-number">0</span>) {
+    qDebug() &lt;&lt; <span class="hljs-string">&quot;ret:&quot;</span> &lt;&lt; ret;
+}
+<span class="hljs-comment">//&#x6253;&#x5370;&#x8F93;&#x51FA;</span>
+<span class="hljs-comment">//ret: -825242872</span>
+<span class="hljs-comment">//ffmpeg&#x65E5;&#x5FD7;&#x8F93;&#x51FA;</span>
+<span class="hljs-comment">//[rtsp @ 000001d2d3940ec0] method DESCRIBE failed: 401 Unauthorized</span>
+</code></pre>
+<p>&#x5728;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>avformat_open_input</code>&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x8D1F;&#x6570;&#x3002;&#x518D;&#x7ED3;&#x5408;<code>ffmpeg</code>&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x5927;&#x81F4;&#x53EF;&#x4EE5;&#x65AD;&#x5B9A;&#x8FD9;&#x662F;server&#x8FD4;&#x56DE;Unauthorized&#x65F6;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x66F4;&#x5177;&#x4F53;&#x7684;&#x786E;&#x8BA4;&#xFF0C;&#x6240;&#x4EE5;&#x67E5;&#x770B;<code>avformat_open_input</code>&#x7684;&#x58F0;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-comment">//avformat.h</span>
+<span class="hljs-comment">/*
+* @return 0 on success, a negative AVERROR on failure.
+*/</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">avformat_open_input</span><span class="hljs-params">(AVFormatContext **ps, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *url, ff_const59 AVInputFormat *fmt, AVDictionary **options)</span></span>;
+</code></pre>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;int&#xFF0C;&#x6CE8;&#x91CA;&#x4E2D;&#x5199;&#x5230;&#x5982;&#x679C;&#x662F;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;<code>AVERROR</code>&#xFF0C;&#x90A3;&#x4E48;&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53BB;<code>ffmpeg</code>&#x7684;&#x6E90;&#x7801;&#x4E2D;&#xFF0C;&#x627E;&#x5173;&#x4E8E;<code>AVERROR</code>&#x7684;&#x5185;&#x5BB9;&#x4E86;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x7F16;&#x8BD1;&#x4E86;<code>ffmpeg</code>&#x6E90;&#x7801;&#xFF0C;&#x76F4;&#x63A5;debug&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6700;&#x7EC8;&#x662F;&#x5982;&#x4F55;&#x8FD4;&#x56DE;&#x7684;&#xFF0C;&#x4F46;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x82B1;&#x989D;&#x5916;&#x7684;&#x65F6;&#x95F4;&#x53BB;&#x7F16;&#x8BD1;&#x6E90;&#x7801;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x7528;&#x5B87;&#x5B99;&#x7B2C;&#x4E00;IDE&#x2014;&#x2014;Visual Studio&#xFF0C;&#x6253;&#x5F00;<code>ffmpeg</code>&#x7684;&#x6E90;&#x7801;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x76F4;&#x63A5;&#x641C;&#x7D22;<code>AVERROR</code>&#xFF0C;&#x5F88;&#x65B9;&#x4FBF;&#x627E;&#x5230;&#x4E86;<code>AVERROR</code>&#x7684;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-comment">//error.h</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> AVERROR(e) (-(e))   <span class="hljs-comment">///&lt; Returns a negative error code from a POSIX error code, to return from library functions.</span></span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;<code>AVERROR</code>&#x662F;&#x7528;&#x6765;&#x53D6;<code>POSIX</code>&#x4E2D;&#x6807;&#x51C6;&#x9519;&#x8BEF;&#x76F8;&#x53CD;&#x6570;&#x7684;&#x5B8F;&#xFF0C;&#x7EE7;&#x7EED;&#x8FFD;&#x8E2A;&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#x76F8;&#x5173;&#x8FD4;&#x56DE;&#x7684;&#x5730;&#x65B9;&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x5728;&#x5934;&#x6587;&#x4EF6;&#x5374;&#x770B;&#x89C1;&#x4E86;Unauthorized&#x7684;&#x76F8;&#x5173;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">//error.h</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> AVERROR_HTTP_UNAUTHORIZED  FFERRTAG(0xF8,<span class="hljs-string">&apos;4&apos;</span>,<span class="hljs-string">&apos;0&apos;</span>,<span class="hljs-string">&apos;1&apos;</span>)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> FFERRTAG(a, b, c, d) (-(int)MKTAG(a, b, c, d))</span>
+<span class="hljs-comment">//common.h</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MKTAG(a,b,c,d) ((a) | ((b) &lt;&lt; 8) | ((c) &lt;&lt; 16) | ((unsigned)(d) &lt;&lt; 24))</span>
+</code></pre>
+<p>&#x6309;&#x7167;&#x5B9A;&#x4E49;&#xFF0C;<code>AVERROR_HTTP_UNAUTHORIZED</code>&#x5B9E;&#x9645;&#x4E0A;&#x662F;(0xF8,&apos;4&apos;,&apos;0&apos;,&apos;1&apos;)&#x7EC4;&#x5408;&#x7684;&#x79FB;&#x4F4D;&#xFF0C;&#x6309;&#x7167;&#x5B9A;&#x4E49;&#x8BA1;&#x7B97;&#x540E;<code>AVERROR_HTTP_UNAUTHORIZED</code>&#x786E;&#x5B9E;&#x7B49;&#x4E8E;-825242872&#x3002;&#x4E3A;&#x4E86;&#x9A8C;&#x8BC1;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x5B8F;&#x5B9A;&#x4E49;&#x4ECE;ffmpeg&#x6E90;&#x7801;&#x4E2D;&#x590D;&#x5236;&#x51FA;&#x6765;&#xFF0C;&#x76F4;&#x63A5;&#x5728;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x4E2D;&#x6253;&#x5370;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">//mainwindow.h</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> AVERROR_HTTP_UNAUTHORIZED  FFERRTAG(0xF8,<span class="hljs-string">&apos;4&apos;</span>,<span class="hljs-string">&apos;0&apos;</span>,<span class="hljs-string">&apos;1&apos;</span>)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MKTAG(a, b, c, d) ((a) | ((b) &lt;&lt; 8) | ((c) &lt;&lt; 16) | ((unsigned)(d) &lt;&lt; 24))</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> FFERRTAG(a, b, c, d) (-(int)MKTAG(a, b, c, d))</span>
+<span class="hljs-comment">//mainwindow.cpp</span>
+qDebug() &lt;&lt; <span class="hljs-string">&quot;AVERROR_HTTP_UNAUTHORIZED:&quot;</span> &lt;&lt;FFERRTAG(<span class="hljs-number">0xF8</span>,<span class="hljs-string">&apos;4&apos;</span>,<span class="hljs-string">&apos;0&apos;</span>,<span class="hljs-string">&apos;1&apos;</span>);
+
+<span class="hljs-comment">//&#x8F93;&#x51FA;</span>
+<span class="hljs-comment">//AVERROR_HTTP_UNAUTHORIZED: -825242872</span>
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x548C;&#x524D;&#x9762;&#x7684;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;&#x8FD8;&#x6709;&#x6211;&#x4EEC;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x5230;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x786E;&#x5B9A;&#x62A5;&#x51FA;&#x4E86;<code>AVERROR_HTTP_UNAUTHORIZED</code>&#x9519;&#x8BEF;&#x3002;&#x987A;&#x624B;&#x628A;error.h&#x4E2D;&#x5176;&#x4ED6;&#x5B8F;&#x5B9A;&#x4E49;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;<code>ffmpeg</code>&#x5E38;&#x7528;&#x9519;&#x8BEF;&#x7801;&#x9519;&#x8BEF;&#x7801;&#x8868;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th><strong>&#x9519;&#x8BEF;&#x7801;&#x5B8F;&#x5B9A;&#x4E49;</strong></th>
+<th><strong>&#x9519;&#x8BEF;&#x7801;</strong></th>
+<th><strong>&#x9519;&#x8BEF;&#x8BF4;&#x660E;</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AVERROR_BSF_NOT_FOUND</td>
+<td>-1179861752</td>
+<td>Bitstream filter   not found</td>
+</tr>
+<tr>
+<td>AVERROR_BUG</td>
+<td>-558323010</td>
+<td>Internal bug, also   see AVERROR_BUG2</td>
+</tr>
+<tr>
+<td>AVERROR_BUFFER_TOO_SMALL</td>
+<td>-1397118274</td>
+<td>Buffer too small</td>
+</tr>
+<tr>
+<td>AVERROR_DECODER_NOT_FOUND</td>
+<td>-1128613112</td>
+<td>Decoder not found</td>
+</tr>
+<tr>
+<td>AVERROR_DEMUXER_NOT_FOUND</td>
+<td>-1296385272</td>
+<td>Demuxer not found</td>
+</tr>
+<tr>
+<td>AVERROR_ENCODER_NOT_FOUND</td>
+<td>-1129203192</td>
+<td>Encoder not found</td>
+</tr>
+<tr>
+<td>AVERROR_EOF</td>
+<td>-541478725</td>
+<td>End of file</td>
+</tr>
+<tr>
+<td>AVERROR_EXIT</td>
+<td>-1414092869</td>
+<td>Immediate exit was   requested; the called function should not be restarted</td>
+</tr>
+<tr>
+<td>AVERROR_EXTERNAL</td>
+<td>-542398533</td>
+<td>Generic error in   an external library</td>
+</tr>
+<tr>
+<td>AVERROR_FILTER_NOT_FOUND</td>
+<td>-1279870712</td>
+<td>Filter not found</td>
+</tr>
+<tr>
+<td>AVERROR_INVALIDDATA</td>
+<td>-1094995529</td>
+<td>Invalid data found   when processing input</td>
+</tr>
+<tr>
+<td>AVERROR_MUXER_NOT_FOUND</td>
+<td>-1481985528</td>
+<td>Muxer not found</td>
+</tr>
+<tr>
+<td>AVERROR_OPTION_NOT_FOUND</td>
+<td>-1414549496</td>
+<td>Option not found</td>
+</tr>
+<tr>
+<td>AVERROR_PATCHWELCOME</td>
+<td>-1163346256</td>
+<td>Not yet   implemented in FFmpeg, patches welcome</td>
+</tr>
+<tr>
+<td>AVERROR_PROTOCOL_NOT_FOUND</td>
+<td>-1330794744</td>
+<td>Protocol not found</td>
+</tr>
+<tr>
+<td>AVERROR_STREAM_NOT_FOUND</td>
+<td>-1381258232</td>
+<td>Stream not found</td>
+</tr>
+<tr>
+<td>AVERROR_BUG2</td>
+<td>-541545794</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_UNKNOWN</td>
+<td>-1313558101</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_EXPERIMENTAL</td>
+<td>-733130664</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_INPUT_CHANGED</td>
+<td>-1668179713</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_OUTPUT_CHANGED</td>
+<td>-1668179714</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_HTTP_BAD_REQUEST</td>
+<td>-808465656</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_HTTP_UNAUTHORIZED</td>
+<td>-825242872</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_HTTP_FORBIDDEN</td>
+<td>-858797304</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_HTTP_NOT_FOUND</td>
+<td>-875574520</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_HTTP_OTHER_4XX</td>
+<td>-1482175736</td>
+<td></td>
+</tr>
+<tr>
+<td>AVERROR_HTTP_SERVER_ERROR</td>
+<td>-1482175992</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E8E;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x589E;&#x52A0;Unauthorized&#x60C5;&#x51B5;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;Unauthorized&#x5219;&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x3002;</p>
+<pre><code class="lang-C++"><span class="hljs-comment">//ffmpegmanager.cpp</span>
+<span class="hljs-keyword">if</span> ((ret = avformat_open_input(&amp;streamFmtCtx, url.toStdString().c_str(), <span class="hljs-literal">nullptr</span>, <span class="hljs-literal">nullptr</span>)) != <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">if</span> (ret == AVERROR_HTTP_UNAUTHORIZED)
+    {
+        <span class="hljs-comment">//...</span>
+        <span class="hljs-keyword">return</span>;
+    }<span class="hljs-keyword">else</span>{
+        <span class="hljs-comment">//...</span>
+        <span class="hljs-keyword">return</span>;
+    }
+}
+</code></pre>
+<p><code>vlc</code>&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x8F93;&#x5165;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x9A8C;&#x8BC1;&#xFF0C;&#x5219;&#x4F1A;&#x91CD;&#x65B0;&#x5F39;&#x51FA;&#x9A8C;&#x8BC1;&#x6846;&#xFF08;&#x4E14;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x7528;&#x91CD;&#x65B0;&#x8F93;&#x5165;&#xFF09;&#xFF0C;&#x76F4;&#x81F3;&#x8F93;&#x5165;&#x6B63;&#x786E;&#x6216;&#x53D6;&#x6D88;&#x8F93;&#x5165;&#xFF08;&#x6548;&#x679C;&#x770B;&#x5F00;&#x5934;&#xFF09;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4E5F;&#x52A0;&#x5165;<code>RTSP</code>&#x5730;&#x5740;&#x5408;&#x6CD5;&#x6027;&#x7684;&#x68C0;&#x67E5;&#x7B49;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-comment">//ffmpegmanager.cpp</span>
+<span class="hljs-keyword">int</span> rtspIndex = url.indexOf(<span class="hljs-string">&quot;rtsp://&quot;</span>);
+<span class="hljs-keyword">int</span> atIndex = url.lastIndexOf(<span class="hljs-string">&quot;@&quot;</span>);
+<span class="hljs-keyword">if</span>(rtspIndex != <span class="hljs-number">-1</span> &amp;&amp; atIndex != <span class="hljs-number">-1</span>){
+    QString couple = url.mid(rtspIndex + <span class="hljs-number">7</span>, atIndex - rtspIndex - <span class="hljs-number">7</span>);
+    username = couple;
+    <span class="hljs-keyword">if</span>(couple.contains(<span class="hljs-string">&apos;:&apos;</span>)){
+        username = couple.mid(<span class="hljs-number">0</span>, couple.lastIndexOf(<span class="hljs-string">&apos;:&apos;</span>));
+    }
+}
+</code></pre>
+<p>&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x9002;&#x914D;&#x9700;&#x8981;&#x6458;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x60C5;&#x51B5;&#x4E86;&#x3002;</p>
+<h2 id="&#x589E;&#x52A0;&#x9519;&#x8BEF;&#x7A97;&#x53E3;">&#x589E;&#x52A0;&#x9519;&#x8BEF;&#x7A97;&#x53E3;</h2>
+<p><code>vlc</code>&#x5728;&#x65E0;&#x6CD5;&#x6253;&#x5F00;<code>RTSP</code>&#x5730;&#x5740;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5F39;&#x51FA;&#x9519;&#x8BEF;&#x7A97;&#x53E3;&#x3002;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7A97;&#x53E3;&#xFF0C;&#x628A;&#x6240;&#x6709;&#x9519;&#x8BEF;&#x90FD;&#x5F52;&#x4E3A;&#x65E0;&#x6CD5;&#x6253;&#x5F00;&#x5730;&#x5740;&#xFF0C;&#x5E76;&#x6253;&#x5370;&#x51FA;&#x6765;&#x3002;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E5%9C%B0%E5%9D%80.gif" alt=""></p>
+<h2 id="&#x89E3;&#x51B3;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;">&#x89E3;&#x51B3;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</h2>
+<p>&#x6700;&#x7136;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x63A5;&#x6536;<code>RTSP</code>&#x6D41;&#x4E86;&#xFF0C;&#x4F46;&#x51FA;&#x73B0;&#x4E86;&#x4E4B;&#x524D;&#x6CA1;&#x51FA;&#x73B0;&#x7684;&#x60C5;&#x51B5;&#xFF1A;&#x5185;&#x5B58;&#x6301;&#x7EED;&#x589E;&#x52A0;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x4E00;&#x822C;&#x662F;&#x53D1;&#x751F;&#x4E86;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#xFF0C;&#x4E4B;&#x524D;&#x8BFB;&#x53D6;MP4&#x6587;&#x4EF6;&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x56FA;&#x5B9A;&#xFF0C;&#x73B0;&#x5728;&#x6301;&#x7EED;&#x6536;&#x6D41;&#xFF0C;&#x73B0;&#x8C61;&#x6BD4;&#x8F83;&#x660E;&#x663E;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x6392;&#x67E5;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x7B80;&#x5355;&#x5B9A;&#x4F4D;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x662F;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5757;&#x53D1;&#x751F;&#x6CC4;&#x9732;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-keyword">while</span>(av_read_frame(streamFmtCtx, packet) &gt;= <span class="hljs-number">0</span>){
+    <span class="hljs-keyword">if</span>(packet-&gt;stream_index == nVideoIndex){
+        <span class="hljs-keyword">if</span>(avcodec_send_packet(decoderCtx, packet)&gt;=<span class="hljs-number">0</span>){
+            <span class="hljs-keyword">while</span>((ret = avcodec_receive_frame(decoderCtx, decodedFrame)) &gt;= <span class="hljs-number">0</span>){
+                <span class="hljs-comment">//...</span>
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x9010;&#x53E5;&#x6392;&#x67E5;&#xFF0C;&#x9996;&#x5148;&#x662F;<code>av_read_frame</code>&#xFF0C;&#x67E5;&#x770B;&#x5B83;&#x7684;&#x58F0;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-comment">//avformat.h</span>
+<span class="hljs-comment">/**
+ *.....
+ * On success, the returned packet is reference-counted (pkt-&gt;buf is set) and
+ * valid indefinitely. The packet must be freed with av_packet_unref() when
+ * it is no longer needed. 
+ *.....
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">av_read_frame</span><span class="hljs-params">(AVFormatContext *s, AVPacket *pkt)</span></span>;
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x9762;&#x6709;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF1A;<code>pkt</code>&#x662F;<code>reference-counted</code>&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4E0D;<code>av_packet_unref()</code>&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x6C38;&#x4E45;&#x6709;&#x6548;&#x3002;&#x7EE7;&#x7EED;&#x770B;&#x5B83;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x6807;&#x662F;&#x627E;&#x51FA;&#x548C;<code>pkt</code>&#x76F8;&#x5173;&#x7684;&#x8FDB;&#x884C;<code>reference-counted</code>&#x7684;&#x8BED;&#x53E5;&#xFF1A;</p>
+<pre><code class="lang-C++"><span class="hljs-comment">//avformat.cpp</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">av_read_frame</span><span class="hljs-params">(AVFormatContext *s, AVPacket *pkt)</span></span>{
+    <span class="hljs-comment">//...</span>
+    ret = read_frame_internal(s, pkt);
+    ret = avpriv_packet_list_put(&amp;s-&gt;internal-&gt;packet_buffer,
+                                 &amp;s-&gt;internal-&gt;packet_buffer_end,
+                                 pkt, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">//...</span>
+}
+</code></pre>
+<p>&#x6700;&#x7EC8;<code>pkt</code>&#x90FD;&#x8981;&#x6267;&#x884C;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;<code>avpriv_packet_list_put</code>&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x8981;&#x627E;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x7EE7;&#x7EED;&#x770B;&#x5B83;&#x7684;&#x58F0;&#x660E;&#x548C;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-C++">//packet_internal.h
+/**
+ * Append an AVPacket to the list.
+ *
+ * @param head  List head element
+ * @param tail  List tail element
+ * @param pkt   The packet being appended. The data described in it will
+ *              be made reference counted if it isn&apos;t already.
+ */
+int avpriv_packet_list_put(PacketList **head, PacketList **tail,
+                           AVPacket *pkt,
+                           int (*copy)(AVPacket *dst, const AVPacket *src),
+                           int flags);
+//avpacket.c
+int avpriv_packet_list_put(PacketList **packet_buffer,
+                           PacketList **plast_pktl,
+                           AVPacket      *pkt,
+                           int (*copy)(AVPacket *dst, const AVPacket *src),
+                           int flags)
+{
+    //...
+    if (*packet_buffer)
+        (*plast_pktl)-&gt;next = pktl;
+    else
+        *packet_buffer = pktl;
+    *plast_pktl = pktl;
+    return 0;
+}
+</code></pre>
+<p>&#x6700;&#x540E;pkt&#x6DFB;&#x52A0;&#x5230;&#x4E86;buffered packet&#x4E2D;&#x3002;&#x5176;&#x4ED6;&#x7EC6;&#x8282;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x6DF1;&#x7A76;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x77E5;&#x9053;pkt&#x88AB;&#x6DFB;&#x52A0;&#x5230;&#x4E86;&#x4E00;&#x4E2A;list&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x7684;&#x786E;&#x4F1A;&#x4EA7;&#x751F;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;&#x6839;&#x636E;&#x524D;&#x9762;&#x58F0;&#x660E;&#x4E2D;&#x7684;&#x63D0;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;<code>av_packet_unref()</code>&#x6765;&#x91CA;&#x653E;pkt&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x90A3;&#x4E48;&#x76F4;&#x63A5;&#x5728;&#x8BFB;&#x53D6;&#x548C;&#x4F7F;&#x7528;&#x5B8C;1&#x4E2A;<code>AVPacket</code>&#x548C;&#x7ED3;&#x675F;&#x65F6;&#x8C03;&#x7528;<code>av_packet_unref()</code>&#x3002;</p>
+<pre><code class="lang-C++"><span class="hljs-keyword">while</span>(av_read_frame(streamFmtCtx, packet) &gt;= <span class="hljs-number">0</span>){
+    <span class="hljs-comment">//...</span>
+    av_packet_unref(packet);
+}
+av_packet_unref(packet);
+</code></pre>
+<p>&#x52A0;&#x4E0A;&#x540E;&#x53D1;&#x73B0;&#xFF0C;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7684;&#x95EE;&#x9898;&#x88AB;&#x89E3;&#x51B3;&#x4E86;&#xFF0C;&#x90A3;&#x5C31;&#x4E0D;&#x518D;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x6392;&#x67E5;&#x4E86;&#x3002;</p>
+<h2 id="&#x9057;&#x7559;&#x95EE;&#x9898;">&#x9057;&#x7559;&#x95EE;&#x9898;</h2>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x597D;&#x7528;&#x7684;<code>RTSP</code>&#x6536;&#x6D41;&#x529F;&#x80FD;&#x5C31;&#x7B97;&#x662F;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x4F46;&#x522B;&#x9AD8;&#x5174;&#x7684;&#x592A;&#x65E9;&#xFF0C;&#x4E8B;&#x60C5;&#x5F80;&#x5F80;&#x6CA1;&#x6709;&#x6211;&#x4EEC;&#x60F3;&#x8C61;&#x7684;&#x90A3;&#x4E48;&#x7B80;&#x5355;&#x2014;&#x2014;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF0C;&#x63A5;&#x6536;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x89C6;&#x9891;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#xFF08;&#x751A;&#x81F3;&#x4E00;&#x5F00;&#x59CB;&#xFF09;&#xFF0C;&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x82B1;&#x5C4F;&#x73B0;&#x8C61;&#xFF1A;</p>
+<p><img src="http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E8%8A%B1%E5%B1%8F.gif" alt=""></p>
+<p>&#x8003;&#x8651;&#x5230;&#x7BC7;&#x5E45;&#x539F;&#x56E0;&#xFF0C;&#x540E;&#x9762;&#x5355;&#x72EC;&#x7BC7;&#x7AE0;&#x518D;&#x53BB;&#x8BA8;&#x8BBA;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F9D;&#x65E7;&#x662F;&#x9700;&#x8981;&#x4ECE;&#x6E90;&#x7801;&#x5207;&#x5165;&#xFF1A;)</p>
+<h2 id="to-do">TO-DO</h2>
+<ul>
+<li>&#x9002;&#x914D;<code>BASE</code>&#x8BA4;&#x8BC1;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="播放mp4文件.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 播放mp4文件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"仿VLC接收RTSP流并播放","level":"1.2.2","depth":2,"previous":{"title":"播放mp4文件","level":"1.2.1","depth":2,"path":"chapter1/播放mp4文件.md","ref":"chapter1/播放mp4文件.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"JoggingJack'Home":"https://joggingjack.fun"}},"gitbook":"*"},"file":{"path":"chapter1/仿VLC接收RTSP流并播放.md","mtime":"2023-12-16T15:30:48.681Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-12-16T15:36:41.559Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
