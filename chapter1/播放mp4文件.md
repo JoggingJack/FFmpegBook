@@ -1,10 +1,10 @@
 # 播放mp4文件
 
+[这里下载直接可运行的源码，下载后有任何问题可加作者微信](<https://mbd.pub/o/bread/mbd-ZZWTlJ1x>)
+
 先看效果。
 
 ![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/1%E6%92%AD%E6%94%BEMP4%E6%96%87%E4%BB%B6/demo.gif)
-
-[这里下载直接可用的代码。](<https://mbd.pub/o/bread/mbd-ZZWTlJ1x>)
 
 这是一个很简单的mp4文件播放demo，为了简化，没有加入音频数据解析，即只有图像没有声音。
 

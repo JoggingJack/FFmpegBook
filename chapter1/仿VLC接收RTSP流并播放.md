@@ -1,5 +1,7 @@
 # 仿VLC接收RTSP流并播放
 
+[这里下载直接可运行的源码，下载后有任何问题可加作者微信](https://mbd.pub/o/bread/mbd-ZZiXmZ9s)
+
 ## 效果
 
 ![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%92%AD%E6%94%BERTSP.gif)
