@@ -4,11 +4,11 @@
 
 ## 效果
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%92%AD%E6%94%BERTSP.gif)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%92%AD%E6%94%BERTSP.gif)
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%AA%8C%E8%AF%81%E6%92%AD%E6%94%BE.gif)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%AA%8C%E8%AF%81%E6%92%AD%E6%94%BE.gif)
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%AA%8C%E8%AF%81%E9%94%99%E8%AF%AF.gif)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%AA%8C%E8%AF%81%E9%94%99%E8%AF%AF.gif)
 
 ## 产生RTSP流
 
@@ -16,7 +16,7 @@
 
 用`EasyDarwin`开启`RTSP`服务作为`RTSP`服务器。
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/easydarwin.jpg)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/easydarwin.jpg)
 
 用`ffmpeg`命令行作为客户端，向`EasyDarwin`循环推送一个视频文件。
 
@@ -24,15 +24,15 @@
 ./ffmpeg.exe -re -stream_loop -1 -i test.mp4 -c copy -f rtsp rtsp://127.0.0.1/stream
 ~~~
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/ffmpeg%E7%AE%80%E5%8D%95%E6%8E%A8%E6%B5%81.png)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/ffmpeg%E7%AE%80%E5%8D%95%E6%8E%A8%E6%B5%81.png)
 
 这样就可以从EasyDarwin接收RTSP流了。
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A8%E6%B5%81%E5%85%B3%E7%B3%BB.png)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A8%E6%B5%81%E5%85%B3%E7%B3%BB.png)
 
 我们用`vlc`接收`RTSP`流看看。
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E6%92%AD%E6%94%BErtsp%E6%B5%81.gif)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E6%92%AD%E6%94%BErtsp%E6%B5%81.gif)
 
 成功接收。
 
@@ -40,7 +40,7 @@
 
 用`FFmpeg`接收`RTSP`流并播放的流程和播放`mp4`文件的流程差不多，只不过播放`mp4`文件时，文件作为播放源，而接收`RTSP`流时，`RTSP`流作为了播放源：
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E7%A8%8B.png)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E7%A8%8B.drawio.png)
 
 我们依旧看下流程中的关键代码：
 
@@ -136,11 +136,11 @@ while(av_read_frame(streamFmtCtx, packet) >= 0){
 
 一个标准的RTSP的收流协议层的交互流程如下：
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E5%8D%8F%E8%AE%AE%E6%B5%81%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E5%8D%8F%E8%AE%AE%E6%B5%81%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 话不多说，我们直接在上面的推流环境下（由于`EasyDarwin`似乎加密了某些信息，我们选择了一个其他的`RTSP`服务器，效果是一样的），用`VLC`收流，并用`wireshark`抓包看看协议流程是不是这样的：
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E6%8E%A5%E6%94%B6%E6%8A%93%E5%8C%85.jpg)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E6%8E%A5%E6%94%B6%E6%8A%93%E5%8C%85.jpg)
 
 直接看看每条信息都是什么：
 
@@ -358,7 +358,7 @@ authorization_enable=0
 
 可以看到`authorization_enable`变量是控制认证的，把它的值改为1，重新启动服务。这时候发现原来的`ffmpeg`命令推流不成功了。
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A8%E6%B5%81%E4%B8%8D%E6%88%90%E5%8A%9F.jpg)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E6%8E%A8%E6%B5%81%E4%B8%8D%E6%88%90%E5%8A%9F.jpg)
 
 那就是说，向EasyDarwin推流的时候，也需要进行认证。从注释上来看，需要加入用户名和密码的`md5`值，我们用正确的参数再推流（下面mad5ofpassword换成你密码的`md5`）：
 
@@ -368,19 +368,19 @@ authorization_enable=0
 
 成功了：
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/ffmpeg%E5%90%91%E6%9C%89%E8%AE%A4%E8%AF%81%E7%9A%84%E6%8E%A8%E6%B5%81%E6%88%90%E5%8A%9F.jpg)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/ffmpeg%E5%90%91%E6%9C%89%E8%AE%A4%E8%AF%81%E7%9A%84%E6%8E%A8%E6%B5%81%E6%88%90%E5%8A%9F.jpg)
 
 这时候用`vlc`接收试试，果然要进行认证，要求输入用户名和密码：
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81.jpg)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81.jpg)
 
 注意这里密码也要输入`md5`后的值。输入正确的密码后，`vlc`可以接收`RTSP`流了:
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E8%AE%A4%E8%AF%81%E5%90%8E%E6%92%AD%E6%94%BE.gif)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/vlc%E8%AE%A4%E8%AF%81%E5%90%8E%E6%92%AD%E6%94%BE.gif)
 
 同样地，用`wireshark`抓包看看带有认证的流程是什么样的：
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%89%B4%E6%9D%83.jpg)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E9%89%B4%E6%9D%83.jpg)
 
 client=>server
 
@@ -580,7 +580,7 @@ if(rtspIndex != -1 && atIndex != -1){
 
 ## 解决内存泄漏
 
-最然程序可以正常接收`RTSP`流了，但出现了之前没出现的情况：内存持续增加。这种情况下一般是发生了内存泄露，之前读取MP4文件没有发现，可能是因为文件大小固定，现在持续收流，现象比较明显，我们得排查我们的代码。简单定位之后，我们发现是下面的代码块发生泄露：
+虽然程序可以正常接收`RTSP`流了，但出现了之前没出现的情况：内存持续增加。这种情况下一般是发生了内存泄露，之前读取MP4文件没有发现，可能是因为文件大小固定，现在持续收流，现象比较明显，我们得检查我们的代码。经过一番定位之后，我们发现是下面的代码块发生泄露：
 
 ~~~C++
 while(av_read_frame(streamFmtCtx, packet) >= 0){
@@ -671,7 +671,7 @@ av_packet_unref(packet);
 
 至此，一个简单好用的`RTSP`收流功能就算是完成了，但别高兴的太早，事情往往没有我们想象的那么简单——经过测试，接收高分辨率视频一段时间后（甚至一开始），就会产生花屏现象：
 
-![](http://s5rlp5ps9.hn-bkt.clouddn.com/ffmpegbook/2%E6%8E%A5%E6%94%B6rtsp%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E8%8A%B1%E5%B1%8F.gif)
+![](https://raw.gitmirror.com/JoggingJack/PicRepo/main/FFmpegBook/2%E6%8E%A5%E6%94%B6RTSP%E6%B5%81%E5%B9%B6%E6%92%AD%E6%94%BE/%E8%8A%B1%E5%B1%8F.gif)
 
 考虑到篇幅原因，后面单独篇章再去讨论解决这个问题，依旧是需要从源码切入：)
 
